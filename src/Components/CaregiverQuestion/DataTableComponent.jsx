@@ -125,7 +125,6 @@ const DataTableComponent = () => {
   const [viewError, setViewError] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [deleteLoading, setDeleteLoading] = useState(false);
-  const [rowAction, setRowAction] = useState({ type: "", id: "" });
 
   const fetchQuestions = async ({ showLoader = false } = {}) => {
     if (showLoader) {
@@ -187,13 +186,9 @@ const DataTableComponent = () => {
   }, [appliedSearch, questions]);
 
   const isRowBusy = (row) => {
-    const rowId = getQuestionId(row);
     const deleteId = getQuestionId(selectedQuestion);
 
-    return (
-      (rowAction.id && rowAction.id === rowId) ||
-      (deleteLoading && deleteId && deleteId === rowId)
-    );
+    return deleteLoading && deleteId && deleteId === getQuestionId(row);
   };
 
   const handleSearchSubmit = (event) => {
@@ -227,7 +222,7 @@ const DataTableComponent = () => {
     }
   };
 
-  const handleOpenView = async (row) => {
+  const handleOpenView = (row) => {
     const questionId = getQuestionId(row);
 
     if (!questionId) {
@@ -236,23 +231,12 @@ const DataTableComponent = () => {
     }
 
     setIsViewModalOpen(true);
-    setViewLoading(true);
     setViewError("");
-    setViewQuestion(null);
-    setRowAction({ type: "view", id: questionId });
-
-    try {
-      const response = await caregiverQuestionService.getQuestionById(questionId);
-      setViewQuestion(normalizeQuestion(response) || row);
-    } catch (error) {
-      setViewError(getApiErrorMessage(error, "Failed to load question details."));
-    } finally {
-      setViewLoading(false);
-      setRowAction({ type: "", id: "" });
-    }
+    setViewLoading(false);
+    setViewQuestion(row);
   };
 
-  const handleOpenEdit = async (row) => {
+  const handleOpenEdit = (row) => {
     const questionId = getQuestionId(row);
 
     if (!questionId) {
@@ -260,17 +244,8 @@ const DataTableComponent = () => {
       return;
     }
 
-    setRowAction({ type: "edit", id: questionId });
-
-    try {
-      const response = await caregiverQuestionService.getQuestionById(questionId);
-      setSelectedQuestion(normalizeQuestion(response) || row);
-      setIsEditModalOpen(true);
-    } catch (error) {
-      toast.error(getApiErrorMessage(error, "Failed to load question for editing."));
-    } finally {
-      setRowAction({ type: "", id: "" });
-    }
+    setSelectedQuestion(row);
+    setIsEditModalOpen(true);
   };
 
   const handleUpdateQuestion = async (payload) => {
