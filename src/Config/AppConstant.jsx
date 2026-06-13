@@ -1,11 +1,12 @@
 export const PROJECT_NAME = 'Care App';
 
 const trimEnvValue = (value) => (typeof value === 'string' ? value.trim() : '');
-const rawApiUrl = trimEnvValue(process.env.REACT_APP_API_URL);
+const DEFAULT_PRODUCTION_API_URL = 'https://api.careavatar.online/api';
+const DEFAULT_LOCAL_API_URL = 'http://172.104.206.4:5000/api';
+const rawApiUrl = trimEnvValue(process.env.REACT_APP_API_URL) || DEFAULT_PRODUCTION_API_URL;
 const rawDevApiUrl =
   trimEnvValue(process.env.REACT_APP_DEV_API_URL) ||
-  rawApiUrl ||
-  'http://172.104.206.4:5000/api';
+  DEFAULT_LOCAL_API_URL;
 const normalizedApiUrl = rawApiUrl.replace(/\/+$/, '');
 const normalizedDevApiUrl = rawDevApiUrl.replace(/\/+$/, '');
 const derivedBaseUrl = normalizedApiUrl.endsWith('/api')
