@@ -1,7 +1,7 @@
 import request from "./request";
 
 const CAREGIVER_QUESTION_URL =
-  "http://172.104.206.4:5000/api/familymember/caregiver-question";
+  "/familymember/caregiver-question";
 
 const withSilentErrors = (config = {}) => ({
   ...config,

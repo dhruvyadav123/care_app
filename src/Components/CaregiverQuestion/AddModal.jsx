@@ -34,6 +34,7 @@ const initialForm = {
   optionsText: "",
 };
 
+
 const normalizeType = (value) => String(value || "").trim().toLowerCase();
 
 const typeUsesOptions = (type) => OPTION_BASED_TYPES.has(normalizeType(type));

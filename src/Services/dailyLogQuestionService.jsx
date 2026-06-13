@@ -1,7 +1,7 @@
 import request from "./request";
 
 const DAILY_LOG_QUESTION_URL =
-  "http://172.104.206.4:5000/api/familymember/daily-log-question";
+  "/familymember/daily-log-question";
 
 const withSilentErrors = (config = {}) => ({
   ...config,
