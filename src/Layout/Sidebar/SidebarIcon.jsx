@@ -1,0 +1,19 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import cubaimg from "../../assets/images/hclogos.jpg"
+
+const SidebarIcon = () => {
+  return (
+    <div className="logo-icon-wrapper">
+      <Link to={`${process.env.PUBLIC_URL}/dashboard/default`}>
+        <img
+          className="img-fluid"
+          src={cubaimg}
+          alt=""
+        />
+      </Link>
+    </div>
+  );
+};
+
+export default SidebarIcon;

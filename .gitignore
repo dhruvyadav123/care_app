@@ -1,0 +1,11 @@
+node_modules/
+build/
+dist/
+.env
+.DS_Store
+
+# Large files ignore
+*.zip
+healthcareUpdated/
+.git - Copy/
+build-output.log
