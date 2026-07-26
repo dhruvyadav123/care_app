@@ -14,6 +14,44 @@ import {
 import axios from "axios";
 import { Btn, Image, Spinner } from "../../AbstractElements";
 import { BASE_URL } from "../../Config/AppConstant";
+import { handleImageError, IMAGE_PLACEHOLDER } from "../../Utils/media";
+
+const normalizeLessonOneQuiz = (quiz) => {
+  const questions = Array.isArray(quiz?.questions)
+    ? quiz.questions
+    : Array.isArray(quiz?.screens)
+    ? quiz.screens
+    : [];
+
+  return {
+    ...quiz,
+    questions: questions.map((question) => ({
+      ...question,
+      questionNo: question?.questionNo ?? question?.screenNo ?? "",
+      questionText: question?.questionText ?? question?.question ?? "",
+    })),
+  };
+};
+
+const resolveLessonOneImage = (value) => {
+  const imagePath = String(value || "").trim().replaceAll(String.fromCharCode(92), "/");
+
+  if (!imagePath) {
+    return IMAGE_PLACEHOLDER;
+  }
+
+  if (/^(https?:|data:|blob:)/i.test(imagePath)) {
+    return imagePath;
+  }
+
+  const normalizedPath = imagePath.startsWith("/api/")
+    ? imagePath.slice(4)
+    : imagePath.startsWith("api/")
+    ? "/" + imagePath.slice(4)
+    : imagePath;
+
+  return BASE_URL + (normalizedPath.startsWith("/") ? normalizedPath : "/" + normalizedPath);
+};
 
 export default function DataTableComponent() {
   const [quizList, setQuizList] = useState([]);
@@ -30,7 +68,8 @@ export default function DataTableComponent() {
   const fetchQuizList = async () => {
     try {
       const res = await axios.get(`${BASE_URL}/api/quiz/getAllQuiz`);
-      setQuizList(res.data.data);
+      const quizzes = Array.isArray(res?.data?.data) ? res.data.data : [];
+      setQuizList(quizzes.map(normalizeLessonOneQuiz));
     } catch (err) {
       console.log("Fetching error:", err);
     }
@@ -86,8 +125,9 @@ export default function DataTableComponent() {
       cell: (row) => (
         <Image
           attrImage={{
+            onError: handleImageError,
             className: "img-60 rounded-circle",
-            src: `${BASE_URL}${row.questions?.[0]?.imageUrl}`,
+            src: resolveLessonOneImage(row.questions?.[0]?.imageUrl),
             alt: "thumbnail",
           }}
         />
@@ -169,7 +209,8 @@ export default function DataTableComponent() {
                 {/* IMAGE */}
                 <div className="text-center my-3">
                   <img
-                    src={q.imageUrl}
+                    onError={handleImageError}
+                    src={resolveLessonOneImage(q.imageUrl)}
                     className="rounded border"
                     style={{
                       width: "180px",

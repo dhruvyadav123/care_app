@@ -482,15 +482,45 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
+  ModalFooter,
 } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchCommunity,
   deleteCommunity,
+  updateCommunity,
 } from "../../Redux/stateSlice/community";
 import { API_URL, BASE_URL } from "../../Config/AppConstant";
 import CommunityDelete from "../../CommonElements/communityDeleteModal";
 import ViewModal from "../Users/ViewModal";
+import { toast } from "react-toastify";
+
+const getCommunityMembers = (payload, communityId) => {
+  const responseData = payload?.data ?? payload;
+  const records = Array.isArray(responseData) ? responseData : [];
+  const matchingRecord = records.find((record) => {
+    const recordCommunityId =
+      record?.community?._id || record?.community?.id || record?.communityId || record?._id;
+
+    return String(recordCommunityId || "") === String(communityId || "");
+  });
+  const nestedMembers = [
+    responseData?.members,
+    responseData?.community?.members,
+    matchingRecord?.members,
+    matchingRecord?.community?.members,
+    records[0]?.members,
+    records[0]?.community?.members,
+  ].find(Array.isArray);
+
+  if (nestedMembers) {
+    return nestedMembers.map((member) => member?.user || member?.member || member).filter(Boolean);
+  }
+
+  return records
+    .map((record) => record?.user || record?.member || record)
+    .filter((member) => member?.name || member?.email || member?.phoneNumber || member?.avatar);
+};
 
 const CommunityDataTableComponent = () => {
   const [selectedRows, setSelectedRows] = useState([]);
@@ -512,6 +542,10 @@ const CommunityDataTableComponent = () => {
   const [communityMembers, setCommunityMembers] = useState([]);
   const [loadingMembers, setLoadingMembers] = useState(false);
   const [showMemberModal, setShowMemberModal] = useState(false);
+  const [memberError, setMemberError] = useState("");
+  const [editingCommunity, setEditingCommunity] = useState(null);
+  const [communityName, setCommunityName] = useState("");
+  const [savingCommunity, setSavingCommunity] = useState(false);
 
   const dispatch = useDispatch();
   const { loading, error, communities } = useSelector(
@@ -544,6 +578,44 @@ const CommunityDataTableComponent = () => {
   const handleRowSelected = useCallback((state) => {
     setSelectedRows(state.selectedRows);
   }, []);
+
+  const openEditCommunity = (event, community) => {
+    event.stopPropagation();
+    setEditingCommunity(community);
+    setCommunityName(community?.name || "");
+  };
+
+  const closeEditCommunity = () => {
+    if (!savingCommunity) {
+      setEditingCommunity(null);
+      setCommunityName("");
+    }
+  };
+
+  const handleEditCommunity = async (event) => {
+    event.preventDefault();
+    const nextName = communityName.trim();
+
+    if (!editingCommunity?._id || !nextName) {
+      return;
+    }
+
+    setSavingCommunity(true);
+
+    try {
+      await dispatch(updateCommunity(editingCommunity._id, { name: nextName }));
+      setEditingCommunity(null);
+      setCommunityName("");
+      await dispatch(fetchCommunity());
+      toast.success("Community name updated successfully.");
+    } catch (requestError) {
+      toast.error(
+        requestError?.response?.data?.message || "Unable to update the community name."
+      );
+    } finally {
+      setSavingCommunity(false);
+    }
+  };
 
   const handleDelete = (id) => {
     setDeleteUserId(id);
@@ -584,6 +656,8 @@ const CommunityDataTableComponent = () => {
   // 🔹 Fetch members and show popup
   const handleRowClick = async (row) => {
     setSelectedCommunityId(row._id);
+    setCommunityMembers([]);
+    setMemberError("");
     setLoadingMembers(true);
     setShowMemberModal(true);
 
@@ -604,10 +678,10 @@ const CommunityDataTableComponent = () => {
       if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
 
       const data = await res.json();
-      const members = data?.[0]?.community?.members || [];
-      setCommunityMembers(members);
+      setCommunityMembers(getCommunityMembers(data, row._id));
     } catch (err) {
       console.error("Error fetching members:", err);
+      setMemberError("Unable to load community members. Please try again.");
     } finally {
       setLoadingMembers(false);
     }
@@ -681,8 +755,26 @@ const CommunityDataTableComponent = () => {
       cell: (row) => (
         <div className="d-flex">
           <button
+            type="button"
             className="btn btn-light p-1 mx-1"
-            onClick={() => handleDelete(row._id)}
+            onClick={(event) => openEditCommunity(event, row)}
+            aria-label={"Edit " + (row?.name || "community")}
+            title="Edit community name"
+          >
+            <i
+              className="fa fa-edit"
+              style={{ fontSize: "small", color: "#494949" }}
+            ></i>
+          </button>
+          <button
+            type="button"
+            className="btn btn-light p-1 mx-1"
+            onClick={(event) => {
+              event.stopPropagation();
+              handleDelete(row._id);
+            }}
+            aria-label={"Delete " + (row?.name || "community")}
+            title="Delete community"
           >
             <i
               className="fa fa-trash-o"
@@ -745,6 +837,45 @@ const CommunityDataTableComponent = () => {
         onDelete={handleConfirmDelete}
       />
 
+      <Modal isOpen={Boolean(editingCommunity)} toggle={closeEditCommunity} centered>
+        <Form onSubmit={handleEditCommunity}>
+          <ModalHeader toggle={closeEditCommunity}>Edit Community Name</ModalHeader>
+          <ModalBody>
+            <FormGroup className="mb-0">
+              <label className="form-label" htmlFor="edit-community-name">
+                Community Name
+              </label>
+              <Input
+                id="edit-community-name"
+                value={communityName}
+                onChange={(event) => setCommunityName(event.target.value)}
+                disabled={savingCommunity}
+                maxLength={100}
+                autoFocus
+                required
+              />
+            </FormGroup>
+          </ModalBody>
+          <ModalFooter>
+            <Button
+              type="button"
+              color="secondary"
+              onClick={closeEditCommunity}
+              disabled={savingCommunity}
+            >
+              Cancel
+            </Button>
+            <Button
+              type="submit"
+              color="primary"
+              disabled={savingCommunity || !communityName.trim()}
+            >
+              {savingCommunity ? "Saving..." : "Save Changes"}
+            </Button>
+          </ModalFooter>
+        </Form>
+      </Modal>
+
       {/* 👥 Member Popup Modal */}
       <Modal
         isOpen={showMemberModal}
@@ -758,6 +889,10 @@ const CommunityDataTableComponent = () => {
           {loadingMembers ? (
             <div className="text-center py-4">
               <Spinner attrSpinner={{ className: "loader-5" }} />
+            </div>
+          ) : memberError ? (
+            <div className="alert alert-danger mb-0" role="alert">
+              {memberError}
             </div>
           ) : communityMembers.length > 0 ? (
             <div className="table-responsive">

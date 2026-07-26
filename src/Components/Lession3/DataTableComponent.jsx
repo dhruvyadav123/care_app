@@ -13,6 +13,7 @@ import {
 } from "reactstrap";
 import axios from "axios";
 import { API_URL, BASE_URL } from "../../Config/AppConstant";
+import { handleImageError, IMAGE_PLACEHOLDER, resolveAssetUrl } from "../../Utils/media";
 
 export default function LessonTableComponent() {
   const [lessonList, setLessonList] = useState([]);
@@ -117,7 +118,8 @@ export default function LessonTableComponent() {
       width: "120px",
       cell: (row) => (
         <img
-          src={row.screens?.[0]?.imageUrl}
+          onError={handleImageError}
+          src={resolveAssetUrl(row.screens?.[0]?.imageUrl || row.screens?.[0]?.questionImage) || IMAGE_PLACEHOLDER}
           style={{
             width: "55px",
             height: "55px",
@@ -179,7 +181,8 @@ export default function LessonTableComponent() {
                     {/* IMAGE */}
                     <div className="p-2 bg-light">
                       <img
-                        src={scr.questionImage || "/default-image.png"}
+                        onError={handleImageError}
+                        src={resolveAssetUrl(scr.questionImage) || IMAGE_PLACEHOLDER}
                         className="img-fluid rounded"
                         style={{ height: "180px", width: "100%", objectFit: "cover" }}
                       />
@@ -201,7 +204,8 @@ export default function LessonTableComponent() {
                             className="d-flex align-items-center gap-2 mb-2"
                           >
                             <img
-                              src={op.imageUrl || "/default-image.png"}
+                              onError={handleImageError}
+                              src={resolveAssetUrl(op.imageUrl) || IMAGE_PLACEHOLDER}
                               style={{
                                 width: "60px",
                                 height: "60px",
@@ -262,7 +266,8 @@ export default function LessonTableComponent() {
                   style={{ height: "240px", background: "#f7f7f7" }}
                 >
                   <img
-                    src={editScreen.questionImage || "/default-image.png"}
+                    onError={handleImageError}
+                    src={resolveAssetUrl(editScreen.questionImage) || IMAGE_PLACEHOLDER}
                     className="img-fluid rounded"
                     style={{ height: "100%", width: "100%", objectFit: "cover" }}
                   />
@@ -328,7 +333,8 @@ export default function LessonTableComponent() {
                       >
                         {/* Preview */}
                         <img
-                          src={op.imageUrl || "/default-image.png"}
+                          onError={handleImageError}
+                          src={resolveAssetUrl(op.imageUrl) || IMAGE_PLACEHOLDER}
                           style={{
                             width: "60px",
                             height: "60px",

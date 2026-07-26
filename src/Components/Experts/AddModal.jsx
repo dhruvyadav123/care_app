@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { Eye, EyeOff } from "react-feather";
 import {
   Col,
   FormFeedback,
@@ -49,11 +50,13 @@ const normalizePhoneNumber = (value) => {
 const AddModal = ({ isOpen, toggle, onSubmit, submitting }) => {
   const [formData, setFormData] = useState(initialForm);
   const [touched, setTouched] = useState({});
+  const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
     if (!isOpen) {
       setFormData(initialForm);
       setTouched({});
+      setShowPassword(false);
     }
   }, [isOpen]);
 
@@ -194,16 +197,31 @@ const AddModal = ({ isOpen, toggle, onSubmit, submitting }) => {
           </Col>
           <Col md="6">
             <FormGroup>
-              <Label>Password</Label>
-              <Input
-                name="password"
-                type="password"
-                placeholder="Minimum 8 characters"
-                value={formData.password}
-                onChange={handleInputChange}
-                onBlur={handleBlur}
-                invalid={Boolean(touched.password && errors.password)}
-              />
+              <Label for="expert-password">Password</Label>
+              <div className="position-relative">
+                <Input
+                  id="expert-password"
+                  name="password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Minimum 8 characters"
+                  value={formData.password}
+                  onChange={handleInputChange}
+                  onBlur={handleBlur}
+                  invalid={Boolean(touched.password && errors.password)}
+                  style={{ paddingRight: "2.75rem" }}
+                />
+                <button
+                  type="button"
+                  className="btn btn-link position-absolute top-50 end-0 translate-middle-y text-muted p-2 border-0"
+                  onClick={() => setShowPassword((visible) => !visible)}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  aria-pressed={showPassword}
+                  title={showPassword ? "Hide password" : "Show password"}
+                  style={{ zIndex: 4 }}
+                >
+                  {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                </button>
+              </div>
               <FormFeedback>{errors.password}</FormFeedback>
             </FormGroup>
           </Col>

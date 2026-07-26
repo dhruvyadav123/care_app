@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useMemo, useState } from "react";
 import DataTable from "react-data-table-component";
 import { Btn, Spinner } from "../../AbstractElements";
 import { Col, FormGroup, Input, Form, Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
@@ -12,6 +12,11 @@ import { resolveAssetUrl } from "../../Utils/media";
 import { resolveApiUrl } from "../../Config/AppConstant";
 import { toast } from "react-toastify";
 import { getUserDisplayName, getUserName } from "../../Utils/userDisplay";
+import {
+  BLOCK_REASON_OPTIONS,
+  BLOCK_REASON_STORAGE_KEY,
+  UNBLOCK_REASON_OPTIONS,
+} from "../../Utils/blockReasons";
 
 const getInitials = (name) =>
   String(name || "")
@@ -67,18 +72,22 @@ const DataTableComponent = () => {
   const [viewModal, setViewModal] = useState(false);
   const [reasonModal, setReasonModal] = useState(false);
   const [blockReason, setBlockReason] = useState("");
+  const [otherBlockReason, setOtherBlockReason] = useState("");
   const [currentToggleUser, setCurrentToggleUser] = useState(null);
   const [search, setSearch] = useState("");
   const [isSearch, setIsSearch] = useState(false);
   const [isDelete, setIsDelete] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [userTypeFilter, setUserTypeFilter] = useState("");
+  const [createdDateFilter, setCreatedDateFilter] = useState("");
 
   const dispatch = useDispatch();
   const { loading, error, pagination, users } = useSelector((state) => state.userState);
 
   useEffect(() => {
-    dispatch(fetchUsers(currentPage, 10));
-  }, [dispatch, currentPage]);
+    dispatch(fetchUsers(currentPage, rowsPerPage));
+  }, [dispatch, currentPage, rowsPerPage]);
 
   const handleView = (data) => {
     setViewModal(true);
@@ -89,6 +98,17 @@ const DataTableComponent = () => {
     setCurrentPage(page);
   };
 
+  const handleRowsPerPageChange = (newRowsPerPage) => {
+    setRowsPerPage(newRowsPerPage);
+    setCurrentPage(1);
+  };
+
+  const handleFilterChange = (setter, value) => {
+    setter(value);
+    setCurrentPage(1);
+    setIsSearch(false);
+  };
+
   const handleConfirmDelete = async () => {
     setIsDelete(false);
   };
@@ -97,8 +117,8 @@ const DataTableComponent = () => {
 const handleStatusToggleClick = (user) => {
   setCurrentToggleUser(user);
   setReasonModal(true);
-  // Clear previous reason
   setBlockReason("");
+  setOtherBlockReason("");
 };
 const reasonModalTitle = currentToggleUser
   ? currentToggleUser.status
@@ -112,9 +132,14 @@ const reasonPlaceholder = currentToggleUser
     : "Enter reason for unblocking this user"
   : "Enter reason";
 
+const reasonOptions = currentToggleUser?.status ? BLOCK_REASON_OPTIONS : UNBLOCK_REASON_OPTIONS;
+
   // 🔹 Submit block/unblock
   const handleBlockSubmit = async () => {
     if (!currentToggleUser) return;
+
+    const reason = blockReason === "Other" ? otherBlockReason.trim() : blockReason.trim();
+    if (!reason) return;
 
     try {
       const userId = currentToggleUser._id;
@@ -124,16 +149,26 @@ const reasonPlaceholder = currentToggleUser
 
       await axios.put(
         `${apiUrl}/admin/updateUserStatus/${userId}`,
-        { status, reason: blockReason },
+        { status, reason },
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
+      const storedReasons = JSON.parse(localStorage.getItem(BLOCK_REASON_STORAGE_KEY) || "{}");
+      storedReasons[userId] = {
+        reason,
+        status,
+        blockedBy: localStorage.getItem("Name") || "Admin",
+        updatedAt: new Date().toISOString(),
+      };
+      localStorage.setItem(BLOCK_REASON_STORAGE_KEY, JSON.stringify(storedReasons));
+
       // refresh users
-      await dispatch(fetchUsers(currentPage, 10));
+      await dispatch(fetchUsers(currentPage, rowsPerPage));
 
       // reset modal
       setReasonModal(false);
       setBlockReason("");
+      setOtherBlockReason("");
       setCurrentToggleUser(null);
       toast.success(status ? "User unblocked successfully" : "User blocked successfully");
     } catch (err) {
@@ -153,7 +188,51 @@ const reasonPlaceholder = currentToggleUser
   const handleClear = async () => {
     setSearch("");
     setIsSearch(false);
-    dispatch(fetchUsers(currentPage, 10));
+    dispatch(fetchUsers(currentPage, rowsPerPage));
+  };
+
+  const filteredUsers = useMemo(
+    () =>
+      users.filter((user) => {
+        const matchesType =
+          !userTypeFilter ||
+          String(user?.userType || "").toLowerCase() === userTypeFilter.toLowerCase();
+        const createdDate = user?.createdAt
+          ? new Date(user.createdAt).toISOString().slice(0, 10)
+          : "";
+        const matchesDate = !createdDateFilter || createdDate === createdDateFilter;
+        return matchesType && matchesDate;
+      }),
+    [users, userTypeFilter, createdDateFilter]
+  );
+
+  const userTypeOptions = useMemo(
+    () => [...new Set(users.map((user) => user?.userType).filter(Boolean))],
+    [users]
+  );
+
+  const hasFilters = Boolean(userTypeFilter || createdDateFilter);
+
+  const handleExport = () => {
+    const headers = ["S.No.", "Name", "Phone", "User Type", "Status", "Time Zone", "Created On"];
+    const rows = filteredUsers.map((user, index) => [
+      index + 1,
+      getUserName(user),
+      user?.phoneNumber || "",
+      user?.userType || "",
+      user?.status ? "Active" : "Blocked",
+      user?.timeZone || "",
+      user?.createdAt ? new Date(user.createdAt).toLocaleDateString() : "",
+    ]);
+    const csv = [headers, ...rows]
+      .map((row) => row.map((value) => `"${String(value).replace(/"/g, '""')}"`).join(","))
+      .join("\n");
+    const blobUrl = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8;" }));
+    const link = document.createElement("a");
+    link.href = blobUrl;
+    link.download = `users-${new Date().toISOString().slice(0, 10)}.csv`;
+    link.click();
+    URL.revokeObjectURL(blobUrl);
   };
 
   if (loading) {
@@ -171,6 +250,12 @@ const reasonPlaceholder = currentToggleUser
   }
 
   const tableColumns = [
+    {
+      name: "S.No.",
+      cell: (_row, rowIndex) => (currentPage - 1) * rowsPerPage + rowIndex + 1,
+      width: "80px",
+      center: true,
+    },
     {
       name: "Profile",
       cell: (row) => (
@@ -241,9 +326,47 @@ const reasonPlaceholder = currentToggleUser
               style={{ width: "250px" }}
             />
             <Btn attrBtn={{ color: "primary" }}>Search</Btn>
+            <Button color="success" type="button" onClick={handleExport}>
+              <i className="fa fa-download me-1" /> Export CSV
+            </Button>
             {isSearch && (
               <Button color="secondary" onClick={handleClear}>
                 Clear
+              </Button>
+            )}
+          </div>
+          <div className="d-flex gap-3 mt-3 flex-wrap">
+            <Input
+              type="select"
+              value={userTypeFilter}
+              onChange={(e) => handleFilterChange(setUserTypeFilter, e.target.value)}
+              style={{ width: "180px" }}
+            >
+              <option value="">All user types</option>
+              {userTypeOptions.map((type) => (
+                <option key={type} value={type}>
+                  {type}
+                </option>
+              ))}
+            </Input>
+            <Input
+              type="date"
+              value={createdDateFilter}
+              onChange={(e) => handleFilterChange(setCreatedDateFilter, e.target.value)}
+              title="Filter by creation date"
+              style={{ width: "180px" }}
+            />
+            {hasFilters && (
+              <Button
+                color="secondary"
+                type="button"
+                onClick={() => {
+                  setUserTypeFilter("");
+                  setCreatedDateFilter("");
+                  setCurrentPage(1);
+                }}
+              >
+                Clear filters
               </Button>
             )}
           </div>
@@ -252,14 +375,16 @@ const reasonPlaceholder = currentToggleUser
 
       {/* Users Table */}
       <DataTable
-        data={users}
+        data={filteredUsers}
         columns={tableColumns}
         striped
         pagination
         paginationServer
-        paginationTotalRows={pagination?.totalUsers || 0}
+        paginationTotalRows={hasFilters ? filteredUsers.length : pagination?.totalUsers || 0}
         onChangePage={handlePageChange}
+        onChangeRowsPerPage={handleRowsPerPageChange}
         paginationDefaultPage={currentPage}
+        paginationPerPage={rowsPerPage}
         selectableRows
         clearSelectedRows={false}
       />
@@ -283,18 +408,41 @@ const reasonPlaceholder = currentToggleUser
   </ModalHeader>
   <ModalBody>
     <Input
-      type="text"
-      placeholder={reasonPlaceholder}
+      type="select"
+      aria-label={reasonPlaceholder}
       value={blockReason}
-      onChange={(e) => setBlockReason(e.target.value)}
+      onChange={(e) => {
+        setBlockReason(e.target.value);
+        if (e.target.value !== "Other") setOtherBlockReason("");
+      }}
       className="reason-input"
-    />
+    >
+      <option value="">Select a reason</option>
+      {reasonOptions.map((reason) => (
+        <option key={reason} value={reason}>
+          {reason}
+        </option>
+      ))}
+    </Input>
+    {blockReason === "Other" && (
+      <Input
+        type="text"
+        placeholder="Enter another reason"
+        value={otherBlockReason}
+        onChange={(e) => setOtherBlockReason(e.target.value)}
+        className="reason-input mt-3"
+      />
+    )}
   </ModalBody>
   <ModalFooter>
     <Button color="secondary" onClick={() => setReasonModal(false)}>
       Cancel
     </Button>
-    <Button color="primary" onClick={handleBlockSubmit} disabled={!blockReason.trim()}>
+    <Button
+      color="primary"
+      onClick={handleBlockSubmit}
+      disabled={!blockReason.trim() || (blockReason === "Other" && !otherBlockReason.trim())}
+    >
       Submit
     </Button>
   </ModalFooter>

@@ -74,15 +74,17 @@ export const updateCommunity = (id, formData, setEditModal) => async (dispatch) 
             },
         });
 
-        if (response.status === 200) {
-            dispatch({ type: UPDATE_COMMUNITY_SUCCESS, payload: response.data });
-            setEditModal(false)
-        }
+        dispatch({ type: UPDATE_COMMUNITY_SUCCESS, payload: response.data });
+        setEditModal?.(false);
+        return response.data;
     } catch (error) {
-        dispatch({ type: UPDATE_COMMUNITY_FAILURE, payload: error.message });
+        dispatch({
+            type: UPDATE_COMMUNITY_FAILURE,
+            payload: error.response?.data?.message || error.message,
+        });
+        throw error;
     }
 };
-
 export const deleteCommunity = (communityId) => async (dispatch) => {
     dispatch({ type: DELETE_COMMUNITY_REQUEST });
     try {

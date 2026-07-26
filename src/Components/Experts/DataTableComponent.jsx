@@ -1,13 +1,14 @@
 import React, { Fragment, useEffect, useMemo, useState } from "react";
 import DataTable from "react-data-table-component";
 import { useDispatch, useSelector } from "react-redux";
-import { Badge, Col, Input, InputGroup, InputGroupText } from "reactstrap";
+import { Badge, Button, Col, Input, InputGroup, InputGroupText, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import { Btn, H5, Spinner } from "../../AbstractElements";
 import { createExpert, deleteExpert, fetchExperts, updateExpert, updateExpertStatus } from "../../Redux/stateSlice/expertReducer";
 import { toast } from "react-toastify";
 import AddModal from "./AddModal";
 import EditModal from "./EditModal";
 import DeleteModal from "./DeleteModal";
+import { BLOCK_REASON_OPTIONS } from "../../Utils/blockReasons";
 
 const formatDate = (value) => {
   if (!value) {
@@ -44,6 +45,8 @@ const DataTableComponent = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [selectedExpert, setSelectedExpert] = useState(null);
+  const [isBlockModalOpen, setIsBlockModalOpen] = useState(false);
+  const [blockReason, setBlockReason] = useState("");
 
   const { experts, loading, submitting, error, pagination } = useSelector((state) => state.experts);
 
@@ -135,16 +138,17 @@ const DataTableComponent = () => {
     }
   };
 
-  const handleToggleStatus = async (expert) => {
+  const updateStatus = async (expert, nextStatus, reason = "") => {
     if (!expert?._id) {
       return;
     }
 
-    const nextStatus = getSafeStatus(expert?.status) === "inactive" ? "active" : "inactive";
-
     try {
-      await dispatch(updateExpertStatus({ expertId: expert._id, status: nextStatus })).unwrap();
+      await dispatch(updateExpertStatus({ expertId: expert._id, status: nextStatus, reason })).unwrap();
       toast.success(`Expert marked ${nextStatus}.`);
+      setIsBlockModalOpen(false);
+      setBlockReason("");
+      setSelectedExpert(null);
       dispatch(fetchExperts());
     } catch (statusError) {
       const message =
@@ -155,6 +159,22 @@ const DataTableComponent = () => {
 
       toast.error(message);
     }
+  };
+
+  const handleToggleStatus = (expert) => {
+    if (getSafeStatus(expert?.status) === "inactive") {
+      updateStatus(expert, "active", "Issue resolved");
+      return;
+    }
+
+    setSelectedExpert(expert);
+    setBlockReason("");
+    setIsBlockModalOpen(true);
+  };
+
+  const handleBlockExpert = () => {
+    if (!selectedExpert || !blockReason) return;
+    updateStatus(selectedExpert, "inactive", blockReason);
   };
 
   const columns = [
@@ -340,6 +360,48 @@ const DataTableComponent = () => {
         deleting={submitting}
         expertName={selectedExpert?.name}
       />
+
+      <Modal
+        isOpen={isBlockModalOpen}
+        toggle={() => {
+          setIsBlockModalOpen(false);
+          setBlockReason("");
+          setSelectedExpert(null);
+        }}
+        centered
+      >
+        <ModalHeader toggle={() => setIsBlockModalOpen(false)}>Select reason to block expert</ModalHeader>
+        <ModalBody>
+          <Input
+            type="select"
+            value={blockReason}
+            onChange={(event) => setBlockReason(event.target.value)}
+            aria-label="Select reason to block expert"
+          >
+            <option value="">Select a reason</option>
+            {BLOCK_REASON_OPTIONS.map((reason) => (
+              <option key={reason} value={reason}>
+                {reason}
+              </option>
+            ))}
+          </Input>
+        </ModalBody>
+        <ModalFooter>
+          <Button
+            color="secondary"
+            onClick={() => {
+              setIsBlockModalOpen(false);
+              setBlockReason("");
+              setSelectedExpert(null);
+            }}
+          >
+            Cancel
+          </Button>
+          <Button color="danger" onClick={handleBlockExpert} disabled={!blockReason || submitting}>
+            {submitting ? "Blocking..." : "Block Expert"}
+          </Button>
+        </ModalFooter>
+      </Modal>
     </Fragment>
   );
 };

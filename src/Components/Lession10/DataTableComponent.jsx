@@ -14,6 +14,7 @@ import {
 import axios from "axios";
 import { Image } from "../../AbstractElements";
 import { API_URL, BASE_URL } from "../../Config/AppConstant";
+import { handleImageError, IMAGE_PLACEHOLDER, resolveAssetUrl } from "../../Utils/media";
 
 export default function Lesson10TableComponent() {
   const [lessonList, setLessonList] = useState([]);
@@ -168,7 +169,8 @@ export default function Lesson10TableComponent() {
                 {/* IMAGE */}
                 <div className="text-center my-3">
                   <img
-                    src={`${BASE_URL}${scr.questionImage}`}
+                    onError={handleImageError}
+                    src={resolveAssetUrl(scr.questionImage) || IMAGE_PLACEHOLDER}
                     className="rounded border"
                     style={{
                       width: "200px",
@@ -219,7 +221,9 @@ export default function Lesson10TableComponent() {
                         <span className="fw-semibold">{op.key}</span>
 
                         <img
-                          src={`${BASE_URL}${op.imageUrl}`}
+
+                          onError={handleImageError}
+                          src={resolveAssetUrl(op.imageUrl) || IMAGE_PLACEHOLDER}
                           style={{
                             width: 70,
                             height: 70,
@@ -344,7 +348,9 @@ export default function Lesson10TableComponent() {
                       </strong>
 
                       <img
-                        src={`${BASE_URL}${op.imageUrl}`}
+
+                        onError={handleImageError}
+                        src={resolveAssetUrl(op.imageUrl) || IMAGE_PLACEHOLDER}
                         style={{
                           width: 70,
                           height: 70,
@@ -393,7 +399,8 @@ export default function Lesson10TableComponent() {
                     {/* IMAGE PREVIEW */}
                     <div className="text-center mt-2">
                       <img
-                        src={`${BASE_URL}${op.imageUrl}`}
+                        onError={handleImageError}
+                        src={resolveAssetUrl(op.imageUrl) || IMAGE_PLACEHOLDER}
                         style={{
                           width: 100,
                           height: 100,

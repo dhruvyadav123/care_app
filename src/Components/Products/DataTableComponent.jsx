@@ -59,13 +59,14 @@ const DataTableComponent = () => {
   const { products, pagination, loading, submitting, error } = useSelector((state) => state.products);
 
   const [currentPage, setCurrentPage] = useState(1);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
   const [addModalOpen, setAddModalOpen] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => {
-    dispatch(fetchProducts({ page: currentPage, limit: 10 }));
-  }, [dispatch, currentPage]);
+    dispatch(fetchProducts({ page: currentPage, limit: rowsPerPage }));
+  }, [dispatch, currentPage, rowsPerPage]);
 
   const toggleAddModal = () => setAddModalOpen((prevState) => !prevState);
   const toggleEditModal = () => setEditModalOpen((prevState) => !prevState);
@@ -74,7 +75,7 @@ const DataTableComponent = () => {
     const response = await dispatch(createProduct(payload));
     if (!response.error) {
       setAddModalOpen(false);
-      dispatch(fetchProducts({ page: currentPage, limit: 10 }));
+      dispatch(fetchProducts({ page: currentPage, limit: rowsPerPage }));
     }
   };
 
@@ -87,7 +88,7 @@ const DataTableComponent = () => {
     if (!response.error) {
       setEditModalOpen(false);
       setSelectedProduct(null);
-      dispatch(fetchProducts({ page: currentPage, limit: 10 }));
+      dispatch(fetchProducts({ page: currentPage, limit: rowsPerPage }));
     }
   };
 
@@ -99,12 +100,18 @@ const DataTableComponent = () => {
 
     const response = await dispatch(deleteProduct(productId));
     if (!response.error) {
-      dispatch(fetchProducts({ page: currentPage, limit: 10 }));
+      dispatch(fetchProducts({ page: currentPage, limit: rowsPerPage }));
     }
   };
 
   const tableColumns = useMemo(
     () => [
+      {
+        name: "S.No.",
+        cell: (_row, rowIndex) => (currentPage - 1) * rowsPerPage + rowIndex + 1,
+        width: "80px",
+        center: true,
+      },
       {
         name: "Image",
         center: true,
@@ -173,7 +180,7 @@ const DataTableComponent = () => {
         ),
       },
     ],
-    []
+    [currentPage, rowsPerPage]
   );
 
   if (loading) {
@@ -209,7 +216,12 @@ const DataTableComponent = () => {
         paginationServer
         paginationTotalRows={pagination?.totalProducts || pagination?.total || products?.length || 0}
         onChangePage={setCurrentPage}
+        onChangeRowsPerPage={(newRowsPerPage) => {
+          setRowsPerPage(newRowsPerPage);
+          setCurrentPage(1);
+        }}
         paginationDefaultPage={currentPage}
+        paginationPerPage={rowsPerPage}
         noDataComponent={<div className="text-center p-4">No products found</div>}
       />
 

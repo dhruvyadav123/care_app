@@ -100,14 +100,14 @@ const UserHeader = () => {
         </LI>
         <LI
           attrLI={{
-            onClick: () => UserMenuRedirect(`${process.env.PUBLIC_URL}/#`),
+            onClick: () => UserMenuRedirect(`${process.env.PUBLIC_URL}/app/email-app`),
           }}>
           <Mail />
           <span>{Inbox}</span>
         </LI>
         <LI
           attrLI={{
-            onClick: () => UserMenuRedirect(`${process.env.PUBLIC_URL}/#`),
+            onClick: () => UserMenuRedirect(`${process.env.PUBLIC_URL}/app/task`),
           }}>
           <FileText />
           <span>{Taskboard}</span>

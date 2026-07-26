@@ -93,9 +93,12 @@ export const updateExpert = createAsyncThunk(
 
 export const updateExpertStatus = createAsyncThunk(
   "experts/updateExpertStatus",
-  async ({ expertId, status }, { rejectWithValue }) => {
+  async ({ expertId, status, reason }, { rejectWithValue }) => {
     try {
-      const response = await expertService.updateExpert(expertId, { status });
+      const response = await expertService.updateExpert(expertId, {
+        status,
+        ...(reason ? { reason } : {}),
+      });
       return { expertId, response, status };
     } catch (error) {
       return rejectWithValue(error.response?.data || "Unable to update expert status");

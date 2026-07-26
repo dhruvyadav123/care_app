@@ -1,5 +1,19 @@
 import { BASE_URL } from "../Config/AppConstant";
 
+export const IMAGE_PLACEHOLDER =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='120' viewBox='0 0 160 120'%3E%3Crect width='160' height='120' rx='10' fill='%23f1f5f9'/%3E%3Cpath d='M45 38h70a8 8 0 0 1 8 8v40a8 8 0 0 1-8 8H45a8 8 0 0 1-8-8V46a8 8 0 0 1 8-8Z' fill='%23cbd5e1'/%3E%3Ccircle cx='58' cy='55' r='7' fill='%2394a3b8'/%3E%3Cpath d='m47 83 20-20 14 14 10-11 22 17H47Z' fill='%2364748b'/%3E%3C/svg%3E";
+
+export const handleImageError = (event) => {
+  const image = event?.currentTarget;
+
+  if (!image || image.src === IMAGE_PLACEHOLDER) {
+    return;
+  }
+
+  image.onerror = null;
+  image.src = IMAGE_PLACEHOLDER;
+};
+
 const DEV_API_URL = process.env.REACT_APP_DEV_API_URL || "http://172.104.206.4:5000/api";
 
 const resolveMediaBaseUrl = () => {
@@ -123,12 +137,20 @@ export const resolveAssetUrl = (value, uploadsFolder = "uploads") => {
     : normalizedAsset.indexOf("https://", 8);
   const cleanedAsset = secondHttpIndex > 0 ? normalizedAsset.slice(secondHttpIndex) : normalizedAsset;
 
+  if (/^(data:|blob:)/i.test(cleanedAsset)) {
+    return cleanedAsset;
+  }
+
   if (/^https?:\/\//i.test(cleanedAsset)) {
     return cleanedAsset;
   }
 
   if (cleanedAsset.startsWith("//")) {
     return `https:${cleanedAsset}`;
+  }
+
+  if (/^\/?api\/uploads\//i.test(cleanedAsset)) {
+    return `${mediaBaseUrl}/${cleanedAsset.replace(/^\/?api\//i, "")}`;
   }
 
   if (cleanedAsset.startsWith("/")) {

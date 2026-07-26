@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import {
+  Button,
   Col,
   FormFeedback,
   FormGroup,
@@ -65,7 +66,10 @@ const parseOptions = (value) =>
     .split(/\r?\n/)
     .map((option) => option.trim())
     .filter(Boolean);
-
+const getEditableOptions = (value) => {
+  const options = String(value || "").split(/\r?\n/);
+  return options.length ? options : [""];
+};
 const buildPayload = (formData) => {
   const normalizedType = String(formData.type || "").trim();
   const options = parseOptions(formData.optionsText);
@@ -152,6 +156,42 @@ const EditModal = ({ isOpen, toggle, questionData, onSubmit, submitting }) => {
     }));
   };
 
+  const handleOptionChange = (index, value) => {
+    setFormData((prev) => ({
+      ...prev,
+      optionsText: getEditableOptions(prev.optionsText)
+        .map((option, optionIndex) => (optionIndex === index ? value : option))
+        .join("\n"),
+    }));
+  };
+
+  const handleAddOption = () => {
+    if (submitting) {
+      return;
+    }
+
+    setFormData((prev) => ({
+      ...prev,
+      optionsText: [...getEditableOptions(prev.optionsText), ""].join("\n"),
+    }));
+  };
+
+  const handleRemoveOption = (index) => {
+    if (submitting) {
+      return;
+    }
+
+    setFormData((prev) => {
+      const options = getEditableOptions(prev.optionsText);
+      const nextOptions =
+        options.length === 1 ? [""] : options.filter((_, optionIndex) => optionIndex !== index);
+
+      return {
+        ...prev,
+        optionsText: nextOptions.join("\n"),
+      };
+    });
+  };
   const handleBlur = ({ target: { name } }) => {
     setTouched((prev) => ({
       ...prev,
@@ -268,23 +308,58 @@ const EditModal = ({ isOpen, toggle, questionData, onSubmit, submitting }) => {
             </FormGroup>
           </Col>
           <Col md="12">
-            <FormGroup>
-              <Label>Options</Label>
-              <Input
-                name="optionsText"
-                type="textarea"
-                rows="5"
-                value={formData.optionsText}
-                onChange={handleInputChange}
-                onBlur={handleBlur}
-                invalid={Boolean(touched.optionsText && errors.optionsText)}
-              />
-              <FormFeedback>{errors.optionsText}</FormFeedback>
-              <small className="text-muted">
-                {typeUsesOptions(formData.type)
-                  ? "Enter one option per line for option-based questions."
-                  : "For types like voice or text, options will be submitted as an empty array."}
-              </small>
+            <FormGroup className="mb-0">
+              <div className="d-flex align-items-center justify-content-between mb-2">
+                <Label className="mb-0">Options</Label>
+                {typeUsesOptions(formData.type) ? (
+                  <Button
+                    color="light"
+                    type="button"
+                    onClick={handleAddOption}
+                    disabled={submitting}
+                  >
+                    Add Option
+                  </Button>
+                ) : null}
+              </div>
+              {typeUsesOptions(formData.type) ? (
+                <div className="d-flex flex-column gap-2">
+                  {getEditableOptions(formData.optionsText).map((option, index) => (
+                    <Row key={"caregiver-option-" + index} className="g-2 align-items-center">
+                      <Col md="10">
+                        <Input
+                          name="optionsText"
+                          placeholder={"Option " + (index + 1)}
+                          value={option}
+                          onChange={(event) => handleOptionChange(index, event.target.value)}
+                          onBlur={handleBlur}
+                          invalid={Boolean(touched.optionsText && errors.optionsText)}
+                        />
+                      </Col>
+                      <Col md="2">
+                        <Button
+                          color="danger"
+                          type="button"
+                          className="w-100"
+                          onClick={() => handleRemoveOption(index)}
+                          disabled={submitting}
+                        >
+                          Remove
+                        </Button>
+                      </Col>
+                    </Row>
+                  ))}
+                </div>
+              ) : (
+                <small className="text-muted">
+                  For types like voice or text, options will be submitted as an empty array.
+                </small>
+              )}
+              {touched.optionsText && errors.optionsText ? (
+                <div className="text-danger mt-2" style={{ fontSize: "0.875rem" }}>
+                  {errors.optionsText}
+                </div>
+              ) : null}
             </FormGroup>
           </Col>
         </Row>

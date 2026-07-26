@@ -13,6 +13,7 @@ import {
 } from "reactstrap";
 import axios from "axios";
 import { API_URL, BASE_URL } from "../../Config/AppConstant";
+import { handleImageError, IMAGE_PLACEHOLDER, resolveAssetUrl } from "../../Utils/media";
 
 export default function LessonTableComponent() {
   const [lessonList, setLessonList] = useState([]);
@@ -156,7 +157,8 @@ export default function LessonTableComponent() {
                       </h6>
                       <div className="p-2 ">
                         <img
-                          src={scr.image || "/default-image.png"}
+                          onError={handleImageError}
+                          src={resolveAssetUrl(scr.image) || IMAGE_PLACEHOLDER}
                           className="img-fluid rounded"
                           style={{
                             height: "250px",
@@ -215,7 +217,8 @@ export default function LessonTableComponent() {
               <div className="col-md-5 mb-3">
                 <div className="border rounded p-2">
                   <img
-                    src={editScreen.image || "/default-image.png"}
+                    onError={handleImageError}
+                    src={resolveAssetUrl(editScreen.image) || IMAGE_PLACEHOLDER}
                     className="img-fluid rounded"
                     style={{
                       height: "250px",

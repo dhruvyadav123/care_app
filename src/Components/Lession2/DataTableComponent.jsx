@@ -14,6 +14,7 @@ import {
 import axios from "axios";
 import { Image } from "../../AbstractElements";
 import { API_URL, BASE_URL } from "../../Config/AppConstant";
+import { handleImageError, IMAGE_PLACEHOLDER, resolveAssetUrl } from "../../Utils/media";
 
 export default function LessonTableComponent() {
   const [lessonList, setLessonList] = useState([]);
@@ -108,7 +109,8 @@ export default function LessonTableComponent() {
       width: "120px",
       cell: (row) => (
         <img
-          src={row.screens?.[0]?.imageUrl}
+          onError={handleImageError}
+          src={resolveAssetUrl(row.screens?.[0]?.imageUrl || row.screens?.[0]?.questionImage) || IMAGE_PLACEHOLDER}
           style={{
             width: "55px",
             height: "55px",
@@ -171,7 +173,8 @@ export default function LessonTableComponent() {
                     style={{ borderLeft: "5px solid #0d6efd" }}
                   >
                     <img
-                      src={screen.imageUrl}
+                      onError={handleImageError}
+                      src={resolveAssetUrl(screen.imageUrl) || IMAGE_PLACEHOLDER}
                       className="card-img-top p-2"
                       style={{
                         height: "180px",

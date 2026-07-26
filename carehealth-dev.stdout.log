@@ -1,0 +1,1427 @@
+
+> careapp@0.1.0 start-developer
+> concurrently "react-scripts start" "node public/server.js"
+
+[1] JSON server is running
+[0] (node:9788) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+[0] (Use `node --trace-deprecation ...` to show where the warning was created)
+[0] (node:9788) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+[0] (node:9788) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+[0] Starting the development server...
+[0] 
+[0] Compiled successfully!
+[0] 
+[0] You can now view careapp in the browser.
+[0] 
+[0]   Local:            http://localhost:3000
+[0]   On Your Network:  http://192.168.1.25:3000
+[0] 
+[0] Note that the development build is not optimized.
+[0] To create a production build, use npm run build.
+[0] 
+[0] [1mLOG from ./node_modules/sass-loader/dist/cjs.js sass-loader ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[1].oneOf[7].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[4]!./src/index.scss[39m[22m
+[0] <w> [1m[33mDeprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/legacy-js-api[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33msrc\index.scss 1:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33msrc\assets\scss\app.scss 1:9  @import[39m[22m
+[0] <w> [1m[33msrc\index.scss 1:9            root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33msrc\assets\scss\app.scss 2:9  @import[39m[22m
+[0] <w> [1m[33msrc\index.scss 1:9            root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33msrc\assets\scss\app.scss 3:9  @import[39m[22m
+[0] <w> [1m[33msrc\index.scss 1:9            root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33msrc\assets\scss\app.scss 4:9  @import[39m[22m
+[0] <w> [1m[33msrc\index.scss 1:9            root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.mix instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_functions.scss 207:11  tint-color()[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_variables.scss 79:12   @import[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\bootstrap.scss 8:9      @import[39m[22m
+[0] <w> [1m[33msrc\assets\scss\app.scss 1:9                        @import[39m[22m
+[0] <w> [1m[33msrc\index.scss 1:9                                  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.mix instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_functions.scss 212:11  shade-color()[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_variables.scss 84:12   @import[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\bootstrap.scss 8:9      @import[39m[22m
+[0] <w> [1m[33msrc\assets\scss\app.scss 1:9                        @import[39m[22m
+[0] <w> [1m[33msrc\index.scss 1:9                                  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.mix instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_variables.scss 342:27  @import[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\bootstrap.scss 8:9      @import[39m[22m
+[0] <w> [1m[33msrc\assets\scss\app.scss 1:9                        @import[39m[22m
+[0] <w> [1m[33msrc\index.scss 1:9                                  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse math.unit instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_functions.scss 11:30  -assert-ascending()[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_variables.scss 494:1  @import[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\bootstrap.scss 8:9     @import[39m[22m
+[0] <w> [1m[33msrc\assets\scss\app.scss 1:9                       @import[39m[22m
+[0] <w> [1m[33msrc\index.scss 1:9                                 root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse math.unit instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_functions.scss 11:51  -assert-ascending()[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_variables.scss 494:1  @import[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\bootstrap.scss 8:9     @import[39m[22m
+[0] <w> [1m[33msrc\assets\scss\app.scss 1:9                       @import[39m[22m
+[0] <w> [1m[33msrc\index.scss 1:9                                 root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation red() is deprecated. Suggestion:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.channel($color, "red", $space: rgb)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_functions.scss 185:10  luminance()[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_functions.scss 174:8   contrast-ratio()[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_functions.scss 159:22  color-contrast()[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_variables.scss 846:42  @import[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\bootstrap.scss 8:9      @import[39m[22m
+[0] <w> [1m[33msrc\assets\scss\app.scss 1:9                        @import[39m[22m
+[0] <w> [1m[33msrc\index.scss 1:9                                  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation green() is deprecated. Suggestion:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.channel($color, "green", $space: rgb)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_functions.scss 186:10  luminance()[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_functions.scss 174:8   contrast-ratio()[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_functions.scss 159:22  color-contrast()[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_variables.scss 846:42  @import[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\bootstrap.scss 8:9      @import[39m[22m
+[0] <w> [1m[33msrc\assets\scss\app.scss 1:9                        @import[39m[22m
+[0] <w> [1m[33msrc\index.scss 1:9                                  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation blue() is deprecated. Suggestion:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.channel($color, "blue", $space: rgb)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_functions.scss 187:10  luminance()[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_functions.scss 174:8   contrast-ratio()[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_functions.scss 159:22  color-contrast()[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_variables.scss 846:42  @import[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\bootstrap.scss 8:9      @import[39m[22m
+[0] <w> [1m[33msrc\assets\scss\app.scss 1:9                        @import[39m[22m
+[0] <w> [1m[33msrc\index.scss 1:9                                  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation red() is deprecated. Suggestion:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.channel($color, "red", $space: rgb)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_functions.scss 37:11   to-rgb()[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_variables.scss 846:31  @import[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\bootstrap.scss 8:9      @import[39m[22m
+[0] <w> [1m[33msrc\assets\scss\app.scss 1:9                        @import[39m[22m
+[0] <w> [1m[33msrc\index.scss 1:9                                  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation green() is deprecated. Suggestion:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.channel($color, "green", $space: rgb)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_functions.scss 37:24   to-rgb()[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_variables.scss 846:31  @import[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\bootstrap.scss 8:9      @import[39m[22m
+[0] <w> [1m[33msrc\assets\scss\app.scss 1:9                        @import[39m[22m
+[0] <w> [1m[33msrc\index.scss 1:9                                  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass's behavior for declarations that appear after nested[39m[22m
+[0] <w> [1m[33mrules will be changing to match the behavior specified by CSS in an upcoming[39m[22m
+[0] <w> [1m[33mversion. To keep the existing behavior, move the declaration above the nested[39m[22m
+[0] <w> [1m[33mrule. To opt into the new behavior, wrap the declaration in `& {}`.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/mixed-decls[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_reboot.scss 503:3   @import[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\bootstrap.scss 16:9  @import[39m[22m
+[0] <w> [1m[33msrc\assets\scss\app.scss 1:9                     @import[39m[22m
+[0] <w> [1m[33msrc\index.scss 1:9                               root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass's behavior for declarations that appear after nested[39m[22m
+[0] <w> [1m[33mrules will be changing to match the behavior specified by CSS in an upcoming[39m[22m
+[0] <w> [1m[33mversion. To keep the existing behavior, move the declaration above the nested[39m[22m
+[0] <w> [1m[33mrule. To opt into the new behavior, wrap the declaration in `& {}`.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/mixed-decls[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_reboot.scss 504:3   @import[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\bootstrap.scss 16:9  @import[39m[22m
+[0] <w> [1m[33msrc\assets\scss\app.scss 1:9                     @import[39m[22m
+[0] <w> [1m[33msrc\index.scss 1:9                               root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass's behavior for declarations that appear after nested[39m[22m
+[0] <w> [1m[33mrules will be changing to match the behavior specified by CSS in an upcoming[39m[22m
+[0] <w> [1m[33mversion. To keep the existing behavior, move the declaration above the nested[39m[22m
+[0] <w> [1m[33mrule. To opt into the new behavior, wrap the declaration in `& {}`.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/mixed-decls[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_type.scss 38:5      @import[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\bootstrap.scss 17:9  @import[39m[22m
+[0] <w> [1m[33msrc\assets\scss\app.scss 1:9                     @import[39m[22m
+[0] <w> [1m[33msrc\index.scss 1:9                               root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass's behavior for declarations that appear after nested[39m[22m
+[0] <w> [1m[33mrules will be changing to match the behavior specified by CSS in an upcoming[39m[22m
+[0] <w> [1m[33mversion. To keep the existing behavior, move the declaration above the nested[39m[22m
+[0] <w> [1m[33mrule. To opt into the new behavior, wrap the declaration in `& {}`.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/mixed-decls[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_type.scss 39:5      @import[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\bootstrap.scss 17:9  @import[39m[22m
+[0] <w> [1m[33msrc\assets\scss\app.scss 1:9                     @import[39m[22m
+[0] <w> [1m[33msrc\index.scss 1:9                               root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass's behavior for declarations that appear after nested[39m[22m
+[0] <w> [1m[33mrules will be changing to match the behavior specified by CSS in an upcoming[39m[22m
+[0] <w> [1m[33mversion. To keep the existing behavior, move the declaration above the nested[39m[22m
+[0] <w> [1m[33mrule. To opt into the new behavior, wrap the declaration in `& {}`.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/mixed-decls[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\_type.scss 40:5      @import[39m[22m
+[0] <w> [1m[33mnode_modules\bootstrap-scss\bootstrap.scss 17:9  @import[39m[22m
+[0] <w> [1m[33msrc\assets\scss\app.scss 1:9                     @import[39m[22m
+[0] <w> [1m[33msrc\index.scss 1:9                               root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mRecommendation: math.div(15, 16) or calc(15 / 16)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/slash-div[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33msrc\assets\scss\vendors\chartist\_chartist-settings.scss 2:20  @import[39m[22m
+[0] <w> [1m[33msrc\assets\scss\vendors\chartist\_chartist.scss 1:9            @import[39m[22m
+[0] <w> [1m[33msrc\assets\scss\app.scss 3:9                                   @import[39m[22m
+[0] <w> [1m[33msrc\index.scss 1:9                                             root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mRecommendation: math.div(8, 9) or calc(8 / 9)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/slash-div[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33msrc\assets\scss\vendors\chartist\_chartist-settings.scss 2:29  @import[39m[22m
+[0] <w> [1m[33msrc\assets\scss\vendors\chartist\_chartist.scss 1:9            @import[39m[22m
+[0] <w> [1m[33msrc\assets\scss\app.scss 3:9                                   @import[39m[22m
+[0] <w> [1m[33msrc\index.scss 1:9                                             root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mRecommendation: math.div(5, 6) or calc(5 / 6)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/slash-div[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33msrc\assets\scss\vendors\chartist\_chartist-settings.scss 2:36  @import[39m[22m
+[0] <w> [1m[33msrc\assets\scss\vendors\chartist\_chartist.scss 1:9            @import[39m[22m
+[0] <w> [1m[33msrc\assets\scss\app.scss 3:9                                   @import[39m[22m
+[0] <w> [1m[33msrc\index.scss 1:9                                             root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mRecommendation: math.div(4, 5) or calc(4 / 5)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/slash-div[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33msrc\assets\scss\vendors\chartist\_chartist-settings.scss 2:43  @import[39m[22m
+[0] <w> [1m[33msrc\assets\scss\vendors\chartist\_chartist.scss 1:9            @import[39m[22m
+[0] <w> [1m[33msrc\assets\scss\app.scss 3:9                                   @import[39m[22m
+[0] <w> [1m[33msrc\index.scss 1:9                                             root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mRecommendation: math.div(3, 4) or calc(3 / 4)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/slash-div[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33msrc\assets\scss\vendors\chartist\_chartist-settings.scss 2:50  @import[39m[22m
+[0] <w> [1m[33msrc\assets\scss\vendors\chartist\_chartist.scss 1:9            @import[39m[22m
+[0] <w> [1m[33msrc\assets\scss\app.scss 3:9                                   @import[39m[22m
+[0] <w> [1m[33msrc\index.scss 1:9                                             root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33m947 repetitive deprecation warnings omitted.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] 
+[0] [1mLOG from ./node_modules/sass-loader/dist/cjs.js sass-loader ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[1].oneOf[7].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[4]!./node_modules/react-datepicker/dist/react-datepicker.css[39m[22m
+[0] <w> [1m[33mDeprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/legacy-js-api[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] 
+[0] [1mLOG from ./node_modules/sass-loader/dist/cjs.js sass-loader ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[1].oneOf[7].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[4]!./node_modules/react-clock/dist/Clock.css[39m[22m
+[0] <w> [1m[33mDeprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/legacy-js-api[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] 
+[0] [1mLOG from ./node_modules/sass-loader/dist/cjs.js sass-loader ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[1].oneOf[7].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[4]!./node_modules/react-dropzone-uploader/dist/styles.css[39m[22m
+[0] <w> [1m[33mDeprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/legacy-js-api[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] 
+[0] [1mLOG from ./node_modules/sass-loader/dist/cjs.js sass-loader ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[1].oneOf[7].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[4]!./node_modules/react-dragula/dist/dragula.css[39m[22m
+[0] <w> [1m[33mDeprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/legacy-js-api[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] 
+[0] [1mLOG from ./node_modules/sass-loader/dist/cjs.js sass-loader ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[1].oneOf[7].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[4]!./node_modules/react-bootstrap-typeahead/css/Typeahead.css[39m[22m
+[0] <w> [1m[33mDeprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/legacy-js-api[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] 
+[0] [1mLOG from ./node_modules/sass-loader/dist/cjs.js sass-loader ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[1].oneOf[7].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[4]!./node_modules/react-image-crop/dist/ReactCrop.css[39m[22m
+[0] <w> [1m[33mDeprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/legacy-js-api[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] 
+[0] [1mLOG from ./node_modules/sass-loader/dist/cjs.js sass-loader ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[1].oneOf[7].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[4]!./node_modules/react-18-image-lightbox/style.css[39m[22m
+[0] <w> [1m[33mDeprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/legacy-js-api[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] 
+[0] [1mLOG from ./node_modules/sass-loader/dist/cjs.js sass-loader ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[1].oneOf[7].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[4]!./node_modules/react-vertical-timeline-component/style.min.css[39m[22m
+[0] <w> [1m[33mDeprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/legacy-js-api[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] 
+[0] [1mLOG from ./node_modules/sass-loader/dist/cjs.js sass-loader ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[1].oneOf[7].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[4]!./node_modules/react-toastify/dist/ReactToastify.css[39m[22m
+[0] <w> [1m[33mDeprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/legacy-js-api[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] 
+[0] [1mLOG from ./node_modules/sass-loader/dist/cjs.js sass-loader ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[1].oneOf[7].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[4]!./node_modules/leaflet/dist/leaflet.css[39m[22m
+[0] <w> [1m[33mDeprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/legacy-js-api[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] 
+[0] [1mLOG from ./node_modules/sass-loader/dist/cjs.js sass-loader ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[1].oneOf[7].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[4]!./node_modules/react-day-picker/dist/style.css[39m[22m
+[0] <w> [1m[33mDeprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/legacy-js-api[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] 
+[0] [1mLOG from ./node_modules/sass-loader/dist/cjs.js sass-loader ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[1].oneOf[7].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[4]!./node_modules/easymde/dist/easymde.min.css[39m[22m
+[0] <w> [1m[33mDeprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/legacy-js-api[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] 
+[0] [1mLOG from ./node_modules/sass-loader/dist/cjs.js sass-loader ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[1].oneOf[7].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[4]!./node_modules/react-big-calendar/lib/css/react-big-calendar.css[39m[22m
+[0] <w> [1m[33mDeprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/legacy-js-api[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] 
+[0] [1mLOG from ./node_modules/sass-loader/dist/cjs.js sass-loader ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[1].oneOf[7].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[4]!./node_modules/react-perfect-scrollbar/dist/css/styles.css[39m[22m
+[0] <w> [1m[33mDeprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/legacy-js-api[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] 
+[0] [1mLOG from ./node_modules/sass-loader/dist/cjs.js sass-loader ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[1].oneOf[7].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[4]!./node_modules/deni-react-treeview/styles/themes/classic-theme.scss[39m[22m
+[0] <w> [1m[33mDeprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/legacy-js-api[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\classic-theme.scss 1:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\classic-theme.scss 2:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 1:9     @import[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\classic-theme.scss 2:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 2:9     @import[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\classic-theme.scss 2:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\classic-theme.scss 5:17  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation lighten() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: 7.96875%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: 2%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\classic-theme.scss 5:17  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 6:12    set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\classic-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation darken() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: -60.0785340314%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: -45%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 6:12    set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\classic-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 8:19    set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\classic-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation darken() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: -13.3507853403%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: -10%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 8:19    set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\classic-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 12:27   set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\classic-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation lighten() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: 79.6875%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: 20%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 12:27   set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\classic-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\style-base.scss 22:38          gradient-background()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 20:7    set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\classic-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation lighten() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: 79.6875%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: 20%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\style-base.scss 22:38          gradient-background()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 20:7    set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\classic-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33m10 repetitive deprecation warnings omitted.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] 
+[0] [1mLOG from ./node_modules/sass-loader/dist/cjs.js sass-loader ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[1].oneOf[7].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[4]!./node_modules/deni-react-treeview/styles/themes/base-theme.scss[39m[22m
+[0] <w> [1m[33mDeprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/legacy-js-api[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 1:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 2:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] 
+[0] [1mLOG from ./node_modules/sass-loader/dist/cjs.js sass-loader ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[1].oneOf[7].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[4]!./node_modules/deni-react-treeview/styles/themes/green-theme.scss[39m[22m
+[0] <w> [1m[33mDeprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/legacy-js-api[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\green-theme.scss 1:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\green-theme.scss 2:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 1:9   @import[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\green-theme.scss 2:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 2:9   @import[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\green-theme.scss 2:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\green-theme.scss 5:17  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation lighten() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: 7.96875%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: 2%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\green-theme.scss 5:17  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 6:12  set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\green-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation darken() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: -60.0785340314%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: -45%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 6:12  set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\green-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 8:19  set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\green-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation darken() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: -13.3507853403%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: -10%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 8:19  set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\green-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 12:27  set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\green-theme.scss 8:5   root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation lighten() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: 79.6875%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: 20%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 12:27  set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\green-theme.scss 8:5   root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\style-base.scss 22:38        gradient-background()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 20:7  set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\green-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation lighten() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: 79.6875%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: 20%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\style-base.scss 22:38        gradient-background()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 20:7  set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\green-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33m10 repetitive deprecation warnings omitted.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] 
+[0] [1mLOG from ./node_modules/sass-loader/dist/cjs.js sass-loader ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[1].oneOf[7].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[4]!./node_modules/deni-react-treeview/styles/themes/icons-theme.scss[39m[22m
+[0] <w> [1m[33mDeprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/legacy-js-api[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] 
+[0] [1mLOG from ./node_modules/sass-loader/dist/cjs.js sass-loader ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[1].oneOf[7].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[4]!./node_modules/deni-react-treeview/styles/themes/metro-theme.scss[39m[22m
+[0] <w> [1m[33mDeprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/legacy-js-api[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\metro-theme.scss 1:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\metro-theme.scss 2:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 1:9   @import[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\metro-theme.scss 2:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 2:9   @import[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\metro-theme.scss 2:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\metro-theme.scss 5:21  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation darken() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: -66.7539267016%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: -50%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\metro-theme.scss 5:21  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\metro-theme.scss 6:17  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation lighten() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: 7.96875%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: 2%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\metro-theme.scss 6:17  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\metro-theme.scss 9:12  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation lighten() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: 59.765625%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: 15%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\metro-theme.scss 9:12  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\metro-theme.scss 16:36  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation darken() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: -69.4240837696%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: -52%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\metro-theme.scss 16:36  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\style-base.scss 22:38         gradient-background()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\metro-theme.scss 16:7  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation lighten() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: 25.9409969481%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: 20%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\style-base.scss 22:38         gradient-background()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\metro-theme.scss 16:7  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33m13 repetitive deprecation warnings omitted.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] 
+[0] [1mLOG from ./node_modules/sass-loader/dist/cjs.js sass-loader ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[1].oneOf[7].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[4]!./node_modules/deni-react-treeview/styles/themes/moonlight-theme.scss[39m[22m
+[0] <w> [1m[33mDeprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/legacy-js-api[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\moonlight-theme.scss 1:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\moonlight-theme.scss 2:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 1:9       @import[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\moonlight-theme.scss 2:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 2:9       @import[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\moonlight-theme.scss 2:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\moonlight-theme.scss 5:21  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation darken() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: -66.7539267016%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: -50%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\moonlight-theme.scss 5:21  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\moonlight-theme.scss 6:17  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation lighten() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: 7.96875%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: 2%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\moonlight-theme.scss 6:17  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\moonlight-theme.scss 9:12  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation lighten() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: 59.765625%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: 15%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\moonlight-theme.scss 9:12  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\style-base.scss 22:38             gradient-background()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\moonlight-theme.scss 16:7  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation lighten() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: 37.0909090909%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: 20%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\style-base.scss 22:38             gradient-background()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\moonlight-theme.scss 16:7  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\moonlight-theme.scss 17:22  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation darken() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: -6.6753926702%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: -5%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\moonlight-theme.scss 17:22  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33m10 repetitive deprecation warnings omitted.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] 
+[0] [1mLOG from ./node_modules/sass-loader/dist/cjs.js sass-loader ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[1].oneOf[7].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[4]!./node_modules/deni-react-treeview/styles/themes/red-theme.scss[39m[22m
+[0] <w> [1m[33mDeprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/legacy-js-api[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\red-theme.scss 1:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\red-theme.scss 2:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 1:9  @import[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\red-theme.scss 2:9   root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 2:9  @import[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\red-theme.scss 2:9   root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\red-theme.scss 5:17  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation lighten() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: 8.031496063%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: 2%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\red-theme.scss 5:17  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 6:12  set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\red-theme.scss 8:5    root stylesheet[39m[22m
+<w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation darken() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: -59.9216710183%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: -45%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 6:12  set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\red-theme.scss 8:5    root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 8:19  set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\red-theme.scss 8:5    root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation darken() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: -13.315926893%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: -10%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 8:19  set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\red-theme.scss 8:5    root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 12:27  set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\red-theme.scss 8:5     root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation lighten() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: 80.3149606299%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: 20%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 12:27  set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\red-theme.scss 8:5     root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\style-base.scss 22:38        gradient-background()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 20:7  set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\red-theme.scss 8:5    root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation lighten() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: 80.3149606299%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: 20%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\style-base.scss 22:38        gradient-background()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 20:7  set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\red-theme.scss 8:5    root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33m10 repetitive deprecation warnings omitted.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] 
+[0] [1mLOG from ./node_modules/sass-loader/dist/cjs.js sass-loader ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[1].oneOf[7].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[4]!./node_modules/deni-react-treeview/styles/themes/silver-theme.scss[39m[22m
+[0] <w> [1m[33mDeprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/legacy-js-api[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\silver-theme.scss 1:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\silver-theme.scss 2:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 1:9    @import[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\silver-theme.scss 2:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 2:9    @import[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\silver-theme.scss 2:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\silver-theme.scss 5:17  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation lighten() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: 7.96875%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: 2%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\silver-theme.scss 5:17  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 6:12   set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\silver-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation darken() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: -60.0785340314%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: -45%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 6:12   set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\silver-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 8:19   set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\silver-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation darken() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: -13.3507853403%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: -10%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 8:19   set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\silver-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 12:27  set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\silver-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation lighten() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: 79.6875%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: 20%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 12:27  set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\silver-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\style-base.scss 22:38         gradient-background()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 20:7   set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\silver-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation lighten() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: 79.6875%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: 20%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\style-base.scss 22:38         gradient-background()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 20:7   set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\silver-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33m10 repetitive deprecation warnings omitted.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] 
+[0] [1mLOG from ./node_modules/sass-loader/dist/cjs.js sass-loader ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[1].oneOf[7].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[4]!./node_modules/deni-react-treeview/styles/themes/purple-theme.scss[39m[22m
+[0] <w> [1m[33mDeprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/legacy-js-api[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\purple-theme.scss 1:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\purple-theme.scss 2:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 1:9    @import[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\purple-theme.scss 2:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 2:9    @import[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\purple-theme.scss 2:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\purple-theme.scss 5:17  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation lighten() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: 8.031496063%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: 2%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\purple-theme.scss 5:17  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 6:12   set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\purple-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation darken() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: -59.9216710183%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: -45%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 6:12   set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\purple-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 8:19   set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\purple-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation darken() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: -13.315926893%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: -10%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 8:19   set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\purple-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 12:27  set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\purple-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation lighten() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: 80.3149606299%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: 20%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 12:27  set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\purple-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\style-base.scss 22:38         gradient-background()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 20:7   set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\purple-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation lighten() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: 80.3149606299%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: 20%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\style-base.scss 22:38         gradient-background()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 20:7   set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\purple-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33m10 repetitive deprecation warnings omitted.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] 
+[0] [1mLOG from ./node_modules/sass-loader/dist/cjs.js sass-loader ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[1].oneOf[7].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[7].use[4]!./node_modules/deni-react-treeview/styles/themes/orange-theme.scss[39m[22m
+[0] <w> [1m[33mDeprecation The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/legacy-js-api[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\orange-theme.scss 1:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\orange-theme.scss 2:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 1:9    @import[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\orange-theme.scss 2:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 2:9    @import[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\orange-theme.scss 2:9  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\orange-theme.scss 5:17  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation lighten() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: 8.031496063%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: 2%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\orange-theme.scss 5:17  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 6:12   set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\orange-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation darken() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: -59.9216710183%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: -45%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 6:12   set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\orange-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 8:19   set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\orange-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation darken() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: -13.315926893%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: -10%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 8:19   set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\orange-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 12:27  set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\orange-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation lighten() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: 80.3149606299%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: 20%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 12:27  set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\orange-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.[39m[22m
+[0] <w> [1m[33mUse color.adjust instead.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info and automated migrator: https://sass-lang.com/d/import[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\style-base.scss 22:38         gradient-background()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 20:7   set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\orange-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mDeprecation lighten() is deprecated. Suggestions:[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mcolor.scale($color, $lightness: 80.3149606299%)[39m[22m
+[0] <w> [1m[33mcolor.adjust($color, $lightness: 20%)[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mMore info: https://sass-lang.com/d/color-functions[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\style-base.scss 22:38         gradient-background()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\base-theme.scss 20:7   set-theme()[39m[22m
+[0] <w> [1m[33mnode_modules\deni-react-treeview\styles\themes\orange-theme.scss 8:5  root stylesheet[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33m10 repetitive deprecation warnings omitted.[39m[22m
+[0] <w> [1m[33m[39m[22m
+[0] <w> [1m[33mnull[39m[22m
+[0] 
+[0] webpack compiled [1m[32msuccessfully[39m[22m
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled [1m[32msuccessfully[39m[22m
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled [1m[32msuccessfully[39m[22m
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled [1m[32msuccessfully[39m[22m
+[0] Compiling...
