@@ -1,4 +1,4 @@
-﻿import React, { Fragment, useEffect, useMemo, useState } from "react";
+import React, { Fragment, useEffect, useMemo, useState } from "react";
 import DataTable from "react-data-table-component";
 import { Btn, Spinner } from "../../AbstractElements";
 import { Col, Input, Form, FormGroup, Button, Modal, ModalBody, ModalHeader } from "reactstrap";
