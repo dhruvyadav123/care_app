@@ -20,13 +20,19 @@ const EditModal = ({ data, editModal, setEditModal }) => {
   const { roles } = useSelector((state) => state.roles);
 
   useEffect(() => {
+    if (editModal) {
+      dispatch(fetchRoles());
+    }
+  }, [dispatch, editModal]);
+
+  useEffect(() => {
     if (data) {
       setFormData({
         name: data.name || '',
         email: data.email || '',
         phoneNumber: data.phoneNumber || '',
         avatar: null,
-        roles: data?.roles?.role || ''
+        roles: data?.roles?._id || data?.roles?.id || data?.roles || ''
       });
     }
   }, [data]);
@@ -56,12 +62,12 @@ const EditModal = ({ data, editModal, setEditModal }) => {
     if (formData.avatar) formDataToSubmit.append('avatar', formData.avatar);
     if (formData.roles) formDataToSubmit.append('roles', formData.roles);
 
-    dispatch(updateSubAdmin(data._id, formDataToSubmit,setEditModal));
+    dispatch(updateSubAdmin(data._id, formDataToSubmit, setEditModal));
   };
 
   return (
     <Modal isOpen={editModal} toggle={() => setEditModal(false)} size="md" centered>
-      <ModalHeader toggle={() => { setEditModal(false) }}>Update SubAdmin</ModalHeader>
+      <ModalHeader toggle={() => { setEditModal(false); }}>Update SubAdmin</ModalHeader>
       <hr />
       <ModalBody>
         <Form onSubmit={handleSubmit}>
@@ -124,7 +130,7 @@ const EditModal = ({ data, editModal, setEditModal }) => {
               <option value="">Select Role</option>
               {roles && roles.length > 0 ? (
                 roles.map((res) => (
-                  <option selected key={res._id} value={res._id}>
+                  <option key={res._id} value={res._id}>
                     {res.role}
                   </option>
                 ))
@@ -135,7 +141,7 @@ const EditModal = ({ data, editModal, setEditModal }) => {
           </FormGroup>
 
           <ModalFooter>
-            <Button color="secondary" onClick={() => { setEditModal(false) }}>Cancel</Button>
+            <Button color="secondary" onClick={() => { setEditModal(false); }}>Cancel</Button>
             <Button color="primary" type="submit">
               Update
             </Button>

@@ -30,14 +30,14 @@ export const searchMedicines = (query) => async (dispatch) => {
 
   try {
     const token1 = localStorage.getItem("token");
-    const { data } = await axios.get(
-      `${API_URL}/medicine/list/search?name=${query}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token1}`,
-        },
-      }
-    );
+    const { data } = await axios.get(`${API_URL}/medicine/list/search`, {
+      headers: {
+        Authorization: `Bearer ${token1}`,
+      },
+      params: {
+        name: query,
+      },
+    });
 
     dispatch({ type: SEARCH_MEDICINE_SUCCESS, payload: data });
   } catch (error) {
@@ -45,24 +45,24 @@ export const searchMedicines = (query) => async (dispatch) => {
   }
 };
 
-export const fetchMedicines = () =>
+export const fetchMedicines = (page = 1, limit = 10) =>
   async (dispatch) => {
     dispatch({ type: FETCH_MEDICINE_REQUEST });
     try {
-      
-    const token1= await localStorage.getItem("token")
-      const { data } = await axios.get(
-        `${API_URL}/medicine/list`,
-        {
-          headers: {
-            Authorization: `Bearer ${token1}`,
-          },
-        }
-      );
+      const token1 = await localStorage.getItem("token");
+      const { data } = await axios.get(`${API_URL}/medicine/list`, {
+        headers: {
+          Authorization: `Bearer ${token1}`,
+        },
+        params: {
+          page,
+          limit,
+        },
+      });
       dispatch({ type: FETCH_MEDICINE_SUCCESS, payload: data });
     } catch (error) {
-      const errorMessage = error.response?.status === 403 
-        ? "Forbidden - please check your permissions or login again" 
+      const errorMessage = error.response?.status === 403
+        ? "Forbidden - please check your permissions or login again"
         : error.message;
       dispatch({ type: FETCH_MEDICINE_FAILURE, payload: errorMessage });
     }
@@ -87,7 +87,6 @@ export const createMedicine = (formData) => async (dispatch) => {
   }
 };
 
-
 export const updateMedicine = (id, formData, setEditModal) => async (dispatch) => {
   dispatch({ type: UPDATE_MEDICINE_REQUEST });
 
@@ -101,7 +100,7 @@ export const updateMedicine = (id, formData, setEditModal) => async (dispatch) =
 
     if (response.status === 200) {
       dispatch({ type: UPDATE_MEDICINE_SUCCESS, payload: response.data });
-      setEditModal(false)
+      setEditModal(false);
     }
   } catch (error) {
     dispatch({ type: UPDATE_MEDICINE_FAILURE, payload: error.message });
@@ -126,7 +125,6 @@ export const deleteMedicine = (id) => async (dispatch) => {
 // Reducer
 export const medicineReducer = (state = initialState, action) => {
   switch (action.type) {
-    // Fetch medicines
     case FETCH_MEDICINE_REQUEST:
       return { ...state, loading: true, error: null };
     case FETCH_MEDICINE_SUCCESS:

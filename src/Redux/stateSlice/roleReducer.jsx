@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_URL } from '../../Config/AppConstant';
+import { resolveApiUrl } from '../../Config/AppConstant';
 
 const initialState = {
     loading: false,
@@ -16,16 +16,16 @@ const FETCH_ROLE_FAILURE = "FETCH_ROLE_FAILURE";
 const fetchRoles = () => async (dispatch) => {
     dispatch({ type: FETCH_ROLE_REQUEST });
     try {
-        // Get token from localStorage
         const token = localStorage.getItem("token");
-        console.log('Token from localStorage:', token);  
+        console.log('Token from localStorage:', token);
 
         if (!token) {
             throw new Error("No token found. Please log in again.");
         }
 
+        const apiUrl = resolveApiUrl();
         const { data } = await axios.get(
-            `${API_URL}/role/fetchAllRole`,
+            `${apiUrl}/role/fetchAllRole`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -38,7 +38,7 @@ const fetchRoles = () => async (dispatch) => {
         console.log('Error:', error);
         dispatch({ type: FETCH_ROLE_FAILURE, payload: error.response?.data?.message || error.message });
     }
-}
+};
 
 export const roleReducer = (state = initialState, action) => {
     switch (action.type) {

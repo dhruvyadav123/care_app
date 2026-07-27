@@ -1,8 +1,8 @@
 import React, { Fragment, useCallback, useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
-import { Spinner, Col, FormGroup, Input, Form,Button } from "reactstrap";
+import { Spinner, Col, FormGroup, Input, Form, Button } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { H5, Btn } from "../../../AbstractElements";
+import { Btn } from "../../../AbstractElements";
 import { deleteMedicine, fetchMedicines, searchMedicines } from "../../../Redux/stateSlice/medicine";
 import Delete from "../../../CommonElements/deleteModal";
 import AddMedicine from "./create";
@@ -15,23 +15,31 @@ const DataTables = () => {
     const dispatch = useDispatch();
     const [addModal, setAddModal] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
+    const [rowsPerPage, setRowsPerPage] = useState(10);
     const [deleteUserId, setDeleteUserId] = useState(null);
     const [isDelete, setIsDelete] = useState(false);
     const [editModal, setEditModal] = useState(false);
     const [viewData, setViewData] = useState("");
     const [viewModal, setViewModal] = useState(false);
-    const [search, setSearch] = useState(null);
-    const [isSearch,setIsSearch] = useState(false);
+    const [search, setSearch] = useState("");
+    const [appliedSearch, setAppliedSearch] = useState("");
+    const [isSearch, setIsSearch] = useState(false);
 
     const { medicines, error, loading, pagination } = useSelector((state) => state.medicine);
     const { isAuthenticated } = useSelector((state) => state.auth);
 
     useEffect(() => {
-        if (isAuthenticated && localStorage.getItem("token")) {
-            dispatch(fetchMedicines());
+        if (!isAuthenticated || !localStorage.getItem("token")) {
+            return;
         }
-    }, [dispatch, currentPage, editModal, isAuthenticated]);
 
+        if (isSearch && appliedSearch) {
+            dispatch(searchMedicines(appliedSearch));
+            return;
+        }
+
+        dispatch(fetchMedicines(currentPage, rowsPerPage));
+    }, [dispatch, currentPage, rowsPerPage, editModal, addModal, isAuthenticated, isSearch, appliedSearch]);
 
     const handleRowSelected = useCallback((state) => {
         setSelectedRows(state.selectedRows);
@@ -39,6 +47,11 @@ const DataTables = () => {
 
     const handlePageChange = (page) => {
         setCurrentPage(page);
+    };
+
+    const handleRowsPerPageChange = (newRowsPerPage) => {
+        setRowsPerPage(newRowsPerPage);
+        setCurrentPage(1);
     };
 
     const handleDelete = (id) => {
@@ -54,8 +67,19 @@ const DataTables = () => {
     const handleConfirmDelete = () => {
         if (deleteUserId) {
             dispatch(deleteMedicine(deleteUserId)).then(() => {
-                dispatch(fetchMedicines());
                 setIsDelete(false);
+
+                if (currentPage > 1 && medicines.length === 1) {
+                    setCurrentPage((prevPage) => prevPage - 1);
+                    return;
+                }
+
+                if (isSearch && appliedSearch) {
+                    dispatch(searchMedicines(appliedSearch));
+                    return;
+                }
+
+                dispatch(fetchMedicines(currentPage, rowsPerPage));
             });
         }
     };
@@ -65,16 +89,26 @@ const DataTables = () => {
         setViewData(data);
     };
 
-    const handleSubmit = () => {
-        dispatch(searchMedicines(search));
-        setIsSearch(true)
-    }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const nextSearch = search.trim();
+        if (!nextSearch) {
+            return;
+        }
 
-    const handleClear = async() => {
-        setSearch('');
-        setIsSearch(false)
-        dispatch(fetchMedicines());
-    }
+        setAppliedSearch(nextSearch);
+        setIsSearch(true);
+        setCurrentPage(1);
+        dispatch(searchMedicines(nextSearch));
+    };
+
+    const handleClear = () => {
+        setSearch("");
+        setAppliedSearch("");
+        setIsSearch(false);
+        setCurrentPage(1);
+        dispatch(fetchMedicines(1, rowsPerPage));
+    };
 
     if (loading) {
         return (
@@ -90,7 +124,20 @@ const DataTables = () => {
         return <p>Error: {error}</p>;
     }
 
+    const totalRows =
+        pagination?.totalMedicines ||
+        pagination?.total ||
+        pagination?.count ||
+        medicines?.length ||
+        0;
+
     const tableColumns = [
+        {
+            name: "S.No.",
+            cell: (_row, rowIndex) => (currentPage - 1) * rowsPerPage + rowIndex + 1,
+            width: "90px",
+            center: true,
+        },
         { name: "Name", selector: (row) => row.name, sortable: true, center: true },
         { name: "Short Composition1", selector: (row) => row.short_composition1, sortable: true, center: true },
         { name: "Short Composition1 2", selector: (row) => row.short_composition2, sortable: true, center: true },
@@ -115,7 +162,6 @@ const DataTables = () => {
     return (
         <Fragment>
             <div className="d-flex align-items-center justify-content-between p-2">
-                {/* <H5 attrH5={{ className: "text-muted m-0" }}>Medicine</H5> */}
                 <Form onSubmit={handleSubmit}>
                     <FormGroup>
                         <div className="d-flex gap-3 mt-2">
@@ -125,11 +171,11 @@ const DataTables = () => {
                                 id="name"
                                 placeholder="Search..."
                                 value={search}
-                                onChange={(e) => { setSearch(e.target.value) }}
+                                onChange={(e) => { setSearch(e.target.value); }}
                                 required
                             />
                             <Btn attrBtn={{ color: "primary" }}>Search</Btn>
-                            {isSearch && <Button className={{ color: "secondary"}} onClick={handleClear}>Clear</Button>}
+                            {isSearch && <Button color="secondary" type="button" onClick={handleClear}>Clear</Button>}
                         </div>
                     </FormGroup>
                 </Form>
@@ -141,9 +187,11 @@ const DataTables = () => {
                 striped
                 pagination
                 paginationServer
-                paginationTotalRows={pagination?.totalMedicines || 0}
+                paginationTotalRows={totalRows}
                 onChangePage={handlePageChange}
+                onChangeRowsPerPage={handleRowsPerPageChange}
                 paginationDefaultPage={currentPage}
+                paginationPerPage={rowsPerPage}
                 selectableRows
                 onSelectedRowsChange={handleRowSelected}
                 clearSelectedRows={toggleDelet}

@@ -6,7 +6,7 @@ import { Button, Col, FormGroup, Input, Label, Modal, ModalBody, ModalFooter, Mo
 import fetchRoles from "../../../Redux/stateSlice/roleReducer";
 import { Spinner } from "../../../AbstractElements";
 import RoleCreate from "./create";
-import { API_URL } from "../../../Config/AppConstant";
+import { resolveApiUrl } from "../../../Config/AppConstant";
 import { toast } from "react-toastify";
 
 const DataTableComponent = () => {
@@ -19,7 +19,8 @@ const DataTableComponent = () => {
   const [roleName, setRoleName] = useState("");
   const [actionLoading, setActionLoading] = useState(false);
   const { loading, error, pagination, roles } = useSelector((state) => state.roles);
-  
+  const apiUrl = resolveApiUrl();
+
   useEffect(() => {
     dispatch(fetchRoles());
   }, [dispatch, currentPage]);
@@ -61,7 +62,7 @@ const DataTableComponent = () => {
 
     try {
       await axios.put(
-        API_URL + "/role/update/" + editingRole._id,
+        apiUrl + "/role/update/" + editingRole._id,
         { role: nextRoleName },
         getAuthConfig()
       );
@@ -88,7 +89,7 @@ const DataTableComponent = () => {
     setActionLoading(true);
 
     try {
-      await axios.delete(API_URL + "/role/delete/" + role._id, getAuthConfig());
+      await axios.delete(apiUrl + "/role/delete/" + role._id, getAuthConfig());
       toast.success("Role deleted successfully.");
       dispatch(fetchRoles());
     } catch (requestError) {
@@ -113,11 +114,11 @@ const DataTableComponent = () => {
   }
 
   const tableColumns = [
-    { 
-      name: "Role", 
-      selector: (row) => row?.role, 
-      sortable: true, 
-      center: true 
+    {
+      name: "Role",
+      selector: (row) => row?.role,
+      sortable: true,
+      center: true
     },
     {
       name: "Assign Permission",
@@ -163,14 +164,14 @@ const DataTableComponent = () => {
     <Fragment>
       <div className="d-flex align-items-center justify-content-between p-2">
         <h5 className="text-muted m-0">Roles</h5>
-        <button 
-          className="btn btn-success" 
+        <button
+          className="btn btn-success"
           onClick={() => setAddRoleModal(true)}
         >
           Add Role
         </button>
       </div>
-      
+
       <DataTable
         data={roles}
         columns={tableColumns}

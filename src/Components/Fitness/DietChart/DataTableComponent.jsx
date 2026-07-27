@@ -13,6 +13,7 @@ const DataTableComponent = () => {
     (state) => state.dietCharts
   );
   const [currentPage, setCurrentPage] = useState(1);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
   const [selectedRows, setSelectedRows] = useState([]);
 
   const [searchInput, setSearchInput] = useState("");
@@ -21,8 +22,8 @@ const DataTableComponent = () => {
   const toggleModal = () => setViewModal((prev) => !prev);
 
   useEffect(() => {
-    dispatch(fetchDietCharts(currentPage, 10));
-  }, [dispatch, currentPage]);
+    dispatch(fetchDietCharts(currentPage, rowsPerPage));
+  }, [dispatch, currentPage, rowsPerPage]);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -32,7 +33,11 @@ const DataTableComponent = () => {
     setSelectedRows(state.selectedRows);
   };
 
-  // filtered data based on search
+  const handleRowsPerPageChange = (newRowsPerPage) => {
+    setRowsPerPage(newRowsPerPage);
+    setCurrentPage(1);
+  };
+
   const filteredData = isSearch
     ? dietCharts.filter((item) =>
         String(item?.name || "").toLowerCase().includes(searchInput.toLowerCase())
@@ -72,7 +77,7 @@ const DataTableComponent = () => {
           onSubmit={(e) => {
             e.preventDefault();
             setIsSearch(true);
-            setCurrentPage(1); // reset page on search
+            setCurrentPage(1);
           }}
         >
           <FormGroup className="d-flex gap-2">
@@ -91,7 +96,7 @@ const DataTableComponent = () => {
                 type="button"
                 onClick={() => {
                   setSearchInput("");
-                  setIsSearch(false); // reset search
+                  setIsSearch(false);
                 }}
               >
                 Clear
@@ -110,9 +115,11 @@ const DataTableComponent = () => {
         center
         pagination
         paginationServer
-        paginationTotalRows={pagination?.total || 0}
+        paginationTotalRows={isSearch ? filteredData.length : pagination?.total || dietCharts.length || 0}
         onChangePage={handlePageChange}
+        onChangeRowsPerPage={handleRowsPerPageChange}
         paginationDefaultPage={currentPage}
+        paginationPerPage={rowsPerPage}
         selectableRows
         onSelectedRowsChange={handleRowSelected}
       />

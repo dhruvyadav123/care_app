@@ -50,38 +50,29 @@ const normalizeQuestions = (response) => {
   return Array.isArray(items) ? items : [];
 };
 
-const normalizeQuestion = (response) => {
-  const item =
-    response?.data?.question ||
-    response?.data?.data ||
-    response?.data ||
-    response?.question ||
-    response;
-
-  return item && typeof item === "object" && !Array.isArray(item) ? item : null;
-};
-
-const normalizeOptionLabel = (option) => {
-  if (typeof option === "string" || typeof option === "number") {
-    return String(option).trim();
+const normalizeOption = (option) => {
+  if (!option || typeof option !== "object") {
+    return null;
   }
 
-  if (option && typeof option === "object") {
-    return String(
-      option.label ||
-        option.text ||
-        option.value ||
-        option.option ||
-        option.name ||
-        ""
-    ).trim();
+  const label = String(
+    option?.label || option?.text || option?.value || option?.option || option?.name || ""
+  ).trim();
+  const rawScore = option?.score;
+  const score = rawScore === "" || rawScore === null || rawScore === undefined ? "" : Number(rawScore);
+
+  if (!label) {
+    return null;
   }
 
-  return "";
+  return {
+    label,
+    score: Number.isFinite(score) ? score : "",
+  };
 };
 
 const normalizeOptions = (options) =>
-  Array.isArray(options) ? options.map(normalizeOptionLabel).filter(Boolean) : [];
+  Array.isArray(options) ? options.map(normalizeOption).filter(Boolean) : [];
 
 const formatOptionsSummary = (options) => {
   const normalizedOptions = normalizeOptions(options);
@@ -90,11 +81,15 @@ const formatOptionsSummary = (options) => {
     return "No options";
   }
 
-  if (normalizedOptions.length <= 2) {
-    return normalizedOptions.join(", ");
+  const formatted = normalizedOptions.map((option) =>
+    option.score === "" ? option.label : `${option.label} (${option.score})`
+  );
+
+  if (formatted.length <= 2) {
+    return formatted.join(", ");
   }
 
-  return `${normalizedOptions.slice(0, 2).join(", ")} +${normalizedOptions.length - 2} more`;
+  return `${formatted.slice(0, 2).join(", ")} +${formatted.length - 2} more`;
 };
 
 const formatRequiredBadge = (isRequired) =>
@@ -176,6 +171,7 @@ const DataTableComponent = () => {
         question?.question,
         question?.description,
         question?.type,
+        question?.maxScore,
         formatOptionsSummary(question?.options),
       ];
 
@@ -537,7 +533,9 @@ const DataTableComponent = () => {
                 {normalizeOptions(viewQuestion?.options).length ? (
                   <ul className="mb-0 mt-2 ps-3">
                     {normalizeOptions(viewQuestion?.options).map((option, index) => (
-                      <li key={`${option}-${index}`}>{option}</li>
+                      <li key={`${option.label}-${index}`}>
+                        {option.score === "" ? option.label : `${option.label} - ${option.score}`}
+                      </li>
                     ))}
                   </ul>
                 ) : (

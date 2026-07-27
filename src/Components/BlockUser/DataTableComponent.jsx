@@ -38,8 +38,30 @@ const getArrayPayload = (payload) => {
 };
 
 const getBlockedUsersFromResponse = (payload) => {
-  const users = Array.isArray(payload?.users) ? payload.users : [];
-  return users.filter((user) => user?.status === false);
+  const users = Array.isArray(payload?.users)
+    ? payload.users
+    : Array.isArray(payload?.data?.users)
+      ? payload.data.users
+      : Array.isArray(payload?.data)
+        ? payload.data
+        : [];
+
+  return users.filter((user) => {
+    if (typeof user?.status === "boolean") {
+      return user.status === false;
+    }
+
+    if (typeof user?.isBlocked === "boolean") {
+      return user.isBlocked;
+    }
+
+    if (typeof user?.blocked === "boolean") {
+      return user.blocked;
+    }
+
+    const statusValue = String(user?.accountStatus ?? user?.status ?? "").toLowerCase();
+    return ["blocked", "inactive", "disabled", "false", "0"].includes(statusValue);
+  });
 };
 
 const fetchBlockedUsers = async (token) => {

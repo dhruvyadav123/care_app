@@ -3,7 +3,7 @@ import DataTable from "react-data-table-component";
 import { Btn, Spinner } from "../../AbstractElements";
 import { Col, FormGroup, Input, Form, Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsers, searchUsers } from "../../Redux/stateSlice/userReducer";
+import { deleteUser, fetchUsers, searchUsers } from "../../Redux/stateSlice/userReducer";
 import ViewModal from "./ViewModal";
 import Switch from "react-switch";
 import axios from "axios";
@@ -34,6 +34,32 @@ const formatDate = (value) => {
 
   const date = new Date(value);
   return Number.isNaN(date.getTime()) ? "N/A" : date.toLocaleDateString();
+};
+
+const isUserActive = (user) => {
+  if (typeof user?.status === "boolean") {
+    return user.status;
+  }
+
+  if (typeof user?.isBlocked === "boolean") {
+    return !user.isBlocked;
+  }
+
+  if (typeof user?.blocked === "boolean") {
+    return !user.blocked;
+  }
+
+  const statusValue = String(user?.accountStatus ?? user?.status ?? "").toLowerCase();
+
+  if (["blocked", "inactive", "disabled", "false", "0"].includes(statusValue)) {
+    return false;
+  }
+
+  if (["active", "unblocked", "enabled", "true", "1"].includes(statusValue)) {
+    return true;
+  }
+
+  return Boolean(user?.status);
 };
 
 const AvatarCell = ({ row }) => {
@@ -77,6 +103,7 @@ const DataTableComponent = () => {
   const [search, setSearch] = useState("");
   const [isSearch, setIsSearch] = useState(false);
   const [isDelete, setIsDelete] = useState(false);
+  const [deleteUserId, setDeleteUserId] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [userTypeFilter, setUserTypeFilter] = useState("");
@@ -86,8 +113,12 @@ const DataTableComponent = () => {
   const { loading, error, pagination, users } = useSelector((state) => state.userState);
 
   useEffect(() => {
+    if (isSearch) {
+      return;
+    }
+
     dispatch(fetchUsers(currentPage, rowsPerPage));
-  }, [dispatch, currentPage, rowsPerPage]);
+  }, [dispatch, currentPage, rowsPerPage, isSearch]);
 
   const handleView = (data) => {
     setViewModal(true);
@@ -109,32 +140,84 @@ const DataTableComponent = () => {
     setIsSearch(false);
   };
 
+  const filteredUsers = useMemo(
+    () =>
+      users.filter((user) => {
+        const matchesType =
+          !userTypeFilter ||
+          String(user?.userType || "").toLowerCase() === userTypeFilter.toLowerCase();
+        const createdDate = user?.createdAt
+          ? new Date(user.createdAt).toISOString().slice(0, 10)
+          : "";
+        const matchesDate = !createdDateFilter || createdDate === createdDateFilter;
+        return matchesType && matchesDate;
+      }),
+    [users, userTypeFilter, createdDateFilter]
+  );
+
+  const displayedUsers = useMemo(() => {
+    if (!isSearch) {
+      return filteredUsers;
+    }
+
+    const startIndex = (currentPage - 1) * rowsPerPage;
+    return filteredUsers.slice(startIndex, startIndex + rowsPerPage);
+  }, [filteredUsers, currentPage, rowsPerPage, isSearch]);
+
+  const userTypeOptions = useMemo(
+    () => [...new Set(users.map((user) => user?.userType).filter(Boolean))],
+    [users]
+  );
+
+  const hasFilters = Boolean(userTypeFilter || createdDateFilter);
+
   const handleConfirmDelete = async () => {
-    setIsDelete(false);
+    if (!deleteUserId) {
+      setIsDelete(false);
+      return;
+    }
+
+    try {
+      const response = await dispatch(deleteUser(deleteUserId));
+      const isDeletingLastVisibleRow = displayedUsers.length === 1 && currentPage > 1;
+
+      setIsDelete(false);
+      setDeleteUserId(null);
+      toast.success(response?.message || "User deleted successfully");
+
+      if (isDeletingLastVisibleRow) {
+        setCurrentPage((prevPage) => prevPage - 1);
+      } else if (!isSearch) {
+        await dispatch(fetchUsers(currentPage, rowsPerPage));
+      }
+    } catch (requestError) {
+      toast.error(requestError?.response?.data?.message || "Unable to delete user");
+    }
   };
 
-  // 🔹 Status toggle click → open reason modal
-const handleStatusToggleClick = (user) => {
-  setCurrentToggleUser(user);
-  setReasonModal(true);
-  setBlockReason("");
-  setOtherBlockReason("");
-};
-const reasonModalTitle = currentToggleUser
-  ? currentToggleUser.status
-    ? "Provide Reason to Block User"
-    : "Provide Reason to Unblock User"
-  : "Provide Reason";
+  const handleStatusToggleClick = (user) => {
+    setCurrentToggleUser(user);
+    setReasonModal(true);
+    setBlockReason("");
+    setOtherBlockReason("");
+  };
 
-const reasonPlaceholder = currentToggleUser
-  ? currentToggleUser.status
-    ? "Enter reason for blocking this user"
-    : "Enter reason for unblocking this user"
-  : "Enter reason";
+  const reasonModalTitle = currentToggleUser
+    ? isUserActive(currentToggleUser)
+      ? "Provide Reason to Block User"
+      : "Provide Reason to Unblock User"
+    : "Provide Reason";
 
-const reasonOptions = currentToggleUser?.status ? BLOCK_REASON_OPTIONS : UNBLOCK_REASON_OPTIONS;
+  const reasonPlaceholder = currentToggleUser
+    ? isUserActive(currentToggleUser)
+      ? "Enter reason for blocking this user"
+      : "Enter reason for unblocking this user"
+    : "Enter reason";
 
-  // 🔹 Submit block/unblock
+  const reasonOptions = isUserActive(currentToggleUser)
+    ? BLOCK_REASON_OPTIONS
+    : UNBLOCK_REASON_OPTIONS;
+
   const handleBlockSubmit = async () => {
     if (!currentToggleUser) return;
 
@@ -143,8 +226,8 @@ const reasonOptions = currentToggleUser?.status ? BLOCK_REASON_OPTIONS : UNBLOCK
 
     try {
       const userId = currentToggleUser._id;
-      const token = localStorage.getItem("token"); 
-      const status = !currentToggleUser.status; 
+      const token = localStorage.getItem("token");
+      const status = !isUserActive(currentToggleUser);
       const apiUrl = resolveApiUrl();
 
       await axios.put(
@@ -162,10 +245,8 @@ const reasonOptions = currentToggleUser?.status ? BLOCK_REASON_OPTIONS : UNBLOCK
       };
       localStorage.setItem(BLOCK_REASON_STORAGE_KEY, JSON.stringify(storedReasons));
 
-      // refresh users
       await dispatch(fetchUsers(currentPage, rowsPerPage));
 
-      // reset modal
       setReasonModal(false);
       setBlockReason("");
       setOtherBlockReason("");
@@ -179,39 +260,19 @@ const reasonOptions = currentToggleUser?.status ? BLOCK_REASON_OPTIONS : UNBLOCK
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!search || search.trim() === "") return;
+    const nextSearch = search.trim();
+    if (!nextSearch) return;
 
-    await dispatch(searchUsers(search));
+    setCurrentPage(1);
+    await dispatch(searchUsers(nextSearch));
     setIsSearch(true);
   };
 
-  const handleClear = async () => {
+  const handleClear = () => {
     setSearch("");
     setIsSearch(false);
-    dispatch(fetchUsers(currentPage, rowsPerPage));
+    setCurrentPage(1);
   };
-
-  const filteredUsers = useMemo(
-    () =>
-      users.filter((user) => {
-        const matchesType =
-          !userTypeFilter ||
-          String(user?.userType || "").toLowerCase() === userTypeFilter.toLowerCase();
-        const createdDate = user?.createdAt
-          ? new Date(user.createdAt).toISOString().slice(0, 10)
-          : "";
-        const matchesDate = !createdDateFilter || createdDate === createdDateFilter;
-        return matchesType && matchesDate;
-      }),
-    [users, userTypeFilter, createdDateFilter]
-  );
-
-  const userTypeOptions = useMemo(
-    () => [...new Set(users.map((user) => user?.userType).filter(Boolean))],
-    [users]
-  );
-
-  const hasFilters = Boolean(userTypeFilter || createdDateFilter);
 
   const handleExport = () => {
     const headers = ["S.No.", "Name", "Phone", "User Type", "Status", "Time Zone", "Created On"];
@@ -220,7 +281,7 @@ const reasonOptions = currentToggleUser?.status ? BLOCK_REASON_OPTIONS : UNBLOCK
       getUserName(user),
       user?.phoneNumber || "",
       user?.userType || "",
-      user?.status ? "Active" : "Blocked",
+      isUserActive(user) ? "Active" : "Blocked",
       user?.timeZone || "",
       user?.createdAt ? new Date(user.createdAt).toLocaleDateString() : "",
     ]);
@@ -267,7 +328,7 @@ const reasonOptions = currentToggleUser?.status ? BLOCK_REASON_OPTIONS : UNBLOCK
     {
       name: "Name",
       cell: (row) => (
-          <div className="text-start">
+        <div className="text-start">
           <div className="fw-semibold">{getUserName(row)}</div>
           <div className="text-muted" style={{ fontSize: "12px" }}>
             {row?.email || row?.phoneNumber || "No contact info"}
@@ -281,7 +342,7 @@ const reasonOptions = currentToggleUser?.status ? BLOCK_REASON_OPTIONS : UNBLOCK
     { name: "User Type", selector: (row) => row?.userType || "N/A", sortable: true, center: true },
     {
       name: "Status",
-      selector: (row) => (row?.status ? "Active" : "Blocked"),
+      selector: (row) => (isUserActive(row) ? "Active" : "Blocked"),
       sortable: true,
       center: true,
     },
@@ -291,15 +352,22 @@ const reasonOptions = currentToggleUser?.status ? BLOCK_REASON_OPTIONS : UNBLOCK
       name: "Actions",
       cell: (row) => (
         <div className="d-flex align-items-center">
-          {/* View Button */}
           <button className="btn btn-light p-1 mx-1" onClick={() => handleView(row)} title="View">
             <i className="fa fa-eye" style={{ fontSize: "small", color: "#494949" }}></i>
           </button>
-
-          {/* Status Toggle */}
+          <button
+            className="btn btn-light p-1 mx-1"
+            onClick={() => {
+              setDeleteUserId(row?._id);
+              setIsDelete(true);
+            }}
+            title="Delete"
+          >
+            <i className="fa fa-trash-o" style={{ fontSize: "small", color: "#494949" }}></i>
+          </button>
           <Switch
             onChange={() => handleStatusToggleClick(row)}
-            checked={row?.status === true}
+            checked={isUserActive(row)}
             offColor="#dc3545"
             onColor="#28a745"
             uncheckedIcon={false}
@@ -314,7 +382,6 @@ const reasonOptions = currentToggleUser?.status ? BLOCK_REASON_OPTIONS : UNBLOCK
 
   return (
     <Fragment>
-      {/* Search */}
       <Form onSubmit={handleSubmit} className="mb-3">
         <FormGroup>
           <div className="d-flex gap-3">
@@ -330,7 +397,7 @@ const reasonOptions = currentToggleUser?.status ? BLOCK_REASON_OPTIONS : UNBLOCK
               <i className="fa fa-download me-1" /> Export CSV
             </Button>
             {isSearch && (
-              <Button color="secondary" onClick={handleClear}>
+              <Button color="secondary" type="button" onClick={handleClear}>
                 Clear
               </Button>
             )}
@@ -373,14 +440,19 @@ const reasonOptions = currentToggleUser?.status ? BLOCK_REASON_OPTIONS : UNBLOCK
         </FormGroup>
       </Form>
 
-      {/* Users Table */}
       <DataTable
-        data={filteredUsers}
+        data={displayedUsers}
         columns={tableColumns}
         striped
         pagination
-        paginationServer
-        paginationTotalRows={hasFilters ? filteredUsers.length : pagination?.totalUsers || 0}
+        paginationServer={!isSearch}
+        paginationTotalRows={
+          isSearch
+            ? filteredUsers.length
+            : hasFilters
+              ? filteredUsers.length
+              : pagination?.totalUsers || pagination?.total || users.length || 0
+        }
         onChangePage={handlePageChange}
         onChangeRowsPerPage={handleRowsPerPageChange}
         paginationDefaultPage={currentPage}
@@ -389,65 +461,60 @@ const reasonOptions = currentToggleUser?.status ? BLOCK_REASON_OPTIONS : UNBLOCK
         clearSelectedRows={false}
       />
 
-      {/* View Modal */}
       <ViewModal data={viewData} viewModal={viewModal} setViewModal={setViewModal} />
-
-      {/* Delete Modal */}
       <Delete isDelete={isDelete} setIsDelete={setIsDelete} onDelete={handleConfirmDelete} />
 
-      {/* Reason Modal (Dark themed) */}
-     <Modal
-  isOpen={reasonModal}
-  toggle={() => setReasonModal(false)}
-  centered
-  backdrop={true}
-  modalClassName="reason-modal"
->
-  <ModalHeader toggle={() => setReasonModal(false)}>
-    {reasonModalTitle}
-  </ModalHeader>
-  <ModalBody>
-    <Input
-      type="select"
-      aria-label={reasonPlaceholder}
-      value={blockReason}
-      onChange={(e) => {
-        setBlockReason(e.target.value);
-        if (e.target.value !== "Other") setOtherBlockReason("");
-      }}
-      className="reason-input"
-    >
-      <option value="">Select a reason</option>
-      {reasonOptions.map((reason) => (
-        <option key={reason} value={reason}>
-          {reason}
-        </option>
-      ))}
-    </Input>
-    {blockReason === "Other" && (
-      <Input
-        type="text"
-        placeholder="Enter another reason"
-        value={otherBlockReason}
-        onChange={(e) => setOtherBlockReason(e.target.value)}
-        className="reason-input mt-3"
-      />
-    )}
-  </ModalBody>
-  <ModalFooter>
-    <Button color="secondary" onClick={() => setReasonModal(false)}>
-      Cancel
-    </Button>
-    <Button
-      color="primary"
-      onClick={handleBlockSubmit}
-      disabled={!blockReason.trim() || (blockReason === "Other" && !otherBlockReason.trim())}
-    >
-      Submit
-    </Button>
-  </ModalFooter>
-</Modal>
-
+      <Modal
+        isOpen={reasonModal}
+        toggle={() => setReasonModal(false)}
+        centered
+        backdrop={true}
+        modalClassName="reason-modal"
+      >
+        <ModalHeader toggle={() => setReasonModal(false)}>
+          {reasonModalTitle}
+        </ModalHeader>
+        <ModalBody>
+          <Input
+            type="select"
+            aria-label={reasonPlaceholder}
+            value={blockReason}
+            onChange={(e) => {
+              setBlockReason(e.target.value);
+              if (e.target.value !== "Other") setOtherBlockReason("");
+            }}
+            className="reason-input"
+          >
+            <option value="">Select a reason</option>
+            {reasonOptions.map((reason) => (
+              <option key={reason} value={reason}>
+                {reason}
+              </option>
+            ))}
+          </Input>
+          {blockReason === "Other" && (
+            <Input
+              type="text"
+              placeholder="Enter another reason"
+              value={otherBlockReason}
+              onChange={(e) => setOtherBlockReason(e.target.value)}
+              className="reason-input mt-3"
+            />
+          )}
+        </ModalBody>
+        <ModalFooter>
+          <Button color="secondary" onClick={() => setReasonModal(false)}>
+            Cancel
+          </Button>
+          <Button
+            color="primary"
+            onClick={handleBlockSubmit}
+            disabled={!blockReason.trim() || (blockReason === "Other" && !otherBlockReason.trim())}
+          >
+            Submit
+          </Button>
+        </ModalFooter>
+      </Modal>
     </Fragment>
   );
 };

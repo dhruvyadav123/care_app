@@ -12,6 +12,29 @@ import {
 } from 'reactstrap';
 import alzheimerService from "../../Services/alzheimer";
 import axios from "axios";
+import { toast } from "react-toastify";
+import { resolveApiUrl } from "../../Config/AppConstant";
+
+const getPatientDisplayLabel = (patient) => {
+  const name = patient?.fullName || patient?.name || "";
+  const email = patient?.email || "";
+  const phone = patient?.phoneNumber || "";
+  const idSuffix = patient?._id ? String(patient._id).slice(-4) : "";
+
+  if (name) {
+    return `${name}${phone ? ` - ${phone}` : ""}`;
+  }
+
+  if (email) {
+    return `${email}${phone ? ` - ${phone}` : ""}`;
+  }
+
+  if (phone) {
+    return `Patient ${idSuffix || ""} - ${phone}`.trim();
+  }
+
+  return `Patient ${idSuffix || "Unknown"}`;
+};
 
 const CreateCaregiver = ({ modal, setModal, refresh }) => {
   const [formData, setFormData] = useState({
@@ -26,10 +49,44 @@ const CreateCaregiver = ({ modal, setModal, refresh }) => {
 
   const [patients, setPatients] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [patientsLoading, setPatientsLoading] = useState(false);
 
-  
+  useEffect(() => {
+    if (!modal) {
+      return;
+    }
 
-  // ✅ Handle input changes
+    const fetchPatients = async () => {
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        setPatients([]);
+        return;
+      }
+
+      setPatientsLoading(true);
+
+      try {
+        const apiUrl = resolveApiUrl();
+        const response = await axios.get(`${apiUrl}/admin/getAllUsers?page=1&limit=500`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        setPatients(response.data?.users || response.data?.data || []);
+      } catch (error) {
+        console.error("Error fetching patients:", error);
+        toast.error(error?.response?.data?.message || "Unable to load patients.");
+        setPatients([]);
+      } finally {
+        setPatientsLoading(false);
+      }
+    };
+
+    fetchPatients();
+  }, [modal]);
+
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     if (name === "image") {
@@ -39,7 +96,6 @@ const CreateCaregiver = ({ modal, setModal, refresh }) => {
     }
   };
 
-  // ✅ Submit caregiver data
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -49,13 +105,12 @@ const CreateCaregiver = ({ modal, setModal, refresh }) => {
         formPayload.append(key, value);
       });
 
-      // API call
       await alzheimerService.createCaregiver(formPayload);
 
-      refresh(); // refresh caregiver list
-      setModal(false); // close modal
+      refresh();
+      setModal(false);
+      toast.success("Caregiver created successfully.");
 
-      // reset form
       setFormData({
         name: "",
         phoneNumber: "",
@@ -67,6 +122,7 @@ const CreateCaregiver = ({ modal, setModal, refresh }) => {
       });
     } catch (error) {
       console.error("Error creating caregiver:", error);
+      toast.error(error?.response?.data?.message || "Failed to create caregiver.");
     } finally {
       setLoading(false);
     }
@@ -131,10 +187,10 @@ const CreateCaregiver = ({ modal, setModal, refresh }) => {
                 onChange={handleChange}
                 required
               >
-                <option value="">Select Patient</option>
+                <option value="">{patientsLoading ? "Loading patients..." : "Select Patient"}</option>
                 {patients.map((p) => (
                   <option key={p._id} value={p._id}>
-                    {p.fullName} ({p.age}y, {p.gender})
+                    {getPatientDisplayLabel(p)}
                   </option>
                 ))}
               </Input>

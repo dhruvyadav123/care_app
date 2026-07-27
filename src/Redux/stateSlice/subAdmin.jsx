@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_URL } from "../../Config/AppConstant";
+import { resolveApiUrl } from "../../Config/AppConstant";
 
 const initialState = {
   loading: false,
@@ -7,7 +7,6 @@ const initialState = {
   error: null,
 };
 
-// Action types
 const FETCH_SUBADMIN_REQUEST = "FETCH_SUBADMIN_REQUEST";
 const FETCH_SUBADMIN_SUCCESS = "FETCH_SUBADMIN_SUCCESS";
 const FETCH_SUBADMIN_FAILURE = "FETCH_SUBADMIN_FAILURE";
@@ -24,21 +23,17 @@ const DELETE_SUBADMIN_REQUEST = "DELETE_SUBADMIN_REQUEST";
 const DELETE_SUBADMIN_SUCCESS = "DELETE_SUBADMIN_SUCCESS";
 const DELETE_SUBADMIN_FAILURE = "DELETE_SUBADMIN_REQUEST";
 
-
 export const fetchSubAdmins = () =>
   async (dispatch) => {
     dispatch({ type: FETCH_SUBADMIN_REQUEST });
     try {
       const token = localStorage.getItem("token");
-      console.log("token::", token);
-      const { data } = await axios.get(
-        `${API_URL}/subAdmin/fetchAllSubAdmins`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const apiUrl = resolveApiUrl();
+      const { data } = await axios.get(`${apiUrl}/subAdmin/fetchAllSubAdmins`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       dispatch({ type: FETCH_SUBADMIN_SUCCESS, payload: data });
     } catch (error) {
       dispatch({ type: FETCH_SUBADMIN_FAILURE, payload: error.message });
@@ -50,7 +45,8 @@ export const addSubAdmin = (formData) => async (dispatch) => {
 
   try {
     const token = localStorage.getItem("token");
-    const response = await axios.post(`${API_URL}/subAdmin/create`, formData, {
+    const apiUrl = resolveApiUrl();
+    const response = await axios.post(`${apiUrl}/subAdmin/create`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
         Authorization: `Bearer ${token}`,
@@ -70,7 +66,8 @@ export const fetchSingleSubAdmin = (id) => async (dispatch) => {
 
   try {
     const token = localStorage.getItem("token");
-    const { data } = await axios.get(`${API_URL}/subAdmin/${id}`, {
+    const apiUrl = resolveApiUrl();
+    const { data } = await axios.get(`${apiUrl}/subAdmin/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -86,7 +83,8 @@ export const updateSubAdmin = (id, formData, setEditModal) => async (dispatch) =
 
   try {
     const token = localStorage.getItem("token");
-    const response = await axios.put(`${API_URL}/subAdmin/update/${id}`, formData, {
+    const apiUrl = resolveApiUrl();
+    const response = await axios.put(`${apiUrl}/subAdmin/update/${id}`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
         Authorization: `Bearer ${token}`,
@@ -95,7 +93,7 @@ export const updateSubAdmin = (id, formData, setEditModal) => async (dispatch) =
 
     if (response.status === 200) {
       dispatch({ type: UPDATE_SUBADMIN_SUCCESS, payload: response.data });
-      setEditModal(false)
+      setEditModal(false);
     }
   } catch (error) {
     dispatch({ type: UPDATE_SUBADMIN_FAILURE, payload: error.message });
@@ -106,7 +104,8 @@ export const deleteSubAdmin = (id) => async (dispatch) => {
   dispatch({ type: DELETE_SUBADMIN_REQUEST });
   try {
     const token = localStorage.getItem("token");
-    await axios.delete(`${API_URL}/subAdmin/delete/${id}`, {
+    const apiUrl = resolveApiUrl();
+    await axios.delete(`${apiUrl}/subAdmin/delete/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -116,10 +115,9 @@ export const deleteSubAdmin = (id) => async (dispatch) => {
     dispatch({ type: DELETE_SUBADMIN_FAILURE, payload: error.message });
   }
 };
-// Reducer
+
 export const subAdminReducer = (state = initialState, action) => {
   switch (action.type) {
-    // Fetch users
     case FETCH_SUBADMIN_REQUEST:
       return { ...state, loading: true, error: null };
     case FETCH_SUBADMIN_SUCCESS:
